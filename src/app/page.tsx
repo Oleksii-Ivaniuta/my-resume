@@ -11,7 +11,7 @@ export default function Home() {
       <div className={css.thumb}>
         <Image
           className={css.photo}
-          src="/photo-oleksii.jpg"
+          src="/oleksii.jpg"
           width="1110"
           height="1400"
           alt="oleksii-photo"

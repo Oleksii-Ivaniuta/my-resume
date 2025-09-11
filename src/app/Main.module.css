@@ -1,6 +1,6 @@
 .main {
   min-width: 1280px;
-  padding: 8px 8px;
+  padding: 24px 8px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,10 +15,10 @@
 .thumb {
   display: flex;
   width: 640px;
-  padding: 12px;
+  padding: 0 12px;
   justify-content: center;
   align-items: center;
-  background-color: #2e2e2e;
+  background-color: #ffd700;
   border-radius: 12px;
 }
 
