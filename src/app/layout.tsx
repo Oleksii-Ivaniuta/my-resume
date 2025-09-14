@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Oleksii Ivaniuta - fullstack developer",
     description: "Website-resume of the fullstack Javascript developer",
-    url: "https://google.com",
+    url: "https://my-resume-ten-delta.vercel.app/",
     siteName: 'Oleksii Ivaniuta',
     images: [
       {
-        url: '/oleksii-photo.webp',
+        url: '/oleksii-meta-data.webp',
         width: 1200,
         height: 630,
         alt: "Oleksii Ivaniuta",
