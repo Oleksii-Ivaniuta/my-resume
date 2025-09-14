@@ -21,6 +21,7 @@
     transform 300ms ease-in-out,
     color 300ms ease-in-out;
   z-index: 2;
+  color: var(--foreground);
 }
 
 .link_span:hover,
