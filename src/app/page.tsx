@@ -1,22 +1,28 @@
 import css from "./Main.module.css";
 import Image from "next/image";
+import ButtonContactMe from "../components/ButtonContactMe/ButtonContactMe";
 
 export default function Home() {
   return (
-    <section className={css.main}>
-      <div className={css.herowraper}>
-        <h1 className={css.heroheader}>HELLO, I AM <span className={css.fsspan}>FULLSTACK DEVELOPER</span></h1>
-        <p>My name is Oleksii Ivaniuta</p>
+    <section className={`container ${css.main}`}>
+      <h1 className={css.hero_header}>
+        HELLO,<br /> I AM <br /><span>FULLSTACK DEVELOPER</span>
+      </h1>
+        <div className={css.thumb}>
+          <Image
+            className={css.photo}
+            src="/oleksii-photo.webp"
+            width="1800"
+            height="1200"
+            alt="oleksii-photo"
+          />
       </div>
-      <div className={css.thumb}>
-        <Image
-          className={css.photo}
-          src="/oleksii.jpg"
-          width="1110"
-          height="1400"
-          alt="oleksii-photo"
-        />
-      </div>
+<ButtonContactMe/>
+        <p className={css.hero_text}>
+          I create <span>modern</span> and <span>responsive</span> web
+          applications that combine <span>functionality</span> with{" "}
+          <span>clean design</span>.
+        </p>
     </section>
   );
 }
