@@ -4,8 +4,9 @@ import ButtonContactMe from "../components/ButtonContactMe/ButtonContactMe";
 
 export default function Home() {
   return (
-    <section className={`container ${css.main}`}>
-      <h1 className={css.hero_header}>
+    <section className="container">
+      <div className={css.main}>
+  <h1 className={css.hero_header}>
         HELLO, I AM <br />
         <span>FULLSTACK DEVELOPER</span>
       </h1>
@@ -27,6 +28,8 @@ export default function Home() {
         applications that combine <span>functionality</span> with{" "}
         <span>clean design</span>.
       </p>
+      </div>
+    
 
 
     </section>

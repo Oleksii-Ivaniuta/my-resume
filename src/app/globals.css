@@ -9,7 +9,7 @@
   --basicorange: rgb(236, 128, 57);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: rgb(10, 10, 10);
     --foreground: rgb(249, 250, 251);
@@ -63,18 +63,18 @@ a {
   min-width: 320px;
   max-width: 767px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 8px;
 }
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
   .container {
     min-width: 768px;
-    max-width: 1023;
-    padding: 0 32px;
+    max-width: 1023px;
+    padding: 0 16px;
   }
 }
 /* Styles for Desktop devices */
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1024px) {
   .container {
     min-width: 1024px;
     max-width: 1280px;

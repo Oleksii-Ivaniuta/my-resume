@@ -11,10 +11,10 @@
     0px 3px 3px -2px var(--shadow020),
     0px 3px 4px 0px var(--shadow014),
     0px 1px 8px 0px var(--shadow012);
+  padding: 8px;
 }
 
 .hero_header {
-  margin-top: 12px;
   font-size: 24px;
 }
 
@@ -28,7 +28,7 @@
   justify-content: center;
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .thumb .photo {
@@ -55,38 +55,38 @@
 
 @media screen and (min-width: 768px) {
   .main {
-    position: relative;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 16px;
     align-items: flex-start;
     justify-content: space-between;
+    padding: 32px;
   }
   .hero_header {
     font-size: 36px;
     max-width: 200px;
-    margin-top: 24px;
   }
   .thumb {
-    margin-top: 24px;
-    width: 480px;
-    height: 480px;
-    margin-bottom: 96px;
+    width: 420px;
+    height: 420px;
+    margin-bottom: 80px;
   }
   .thumb .photo {
     object-fit: cover;
   }
   .btn {
-    position: absolute;
-    right: 120px;
-    bottom: 24px;
     margin-bottom: 0;
+    order: 4;
+    transform: translateY(-64px);
+    margin-right: 32px;
+    margin-bottom: -100px;
   }
   .hero_text {
-    position: absolute;
-    width: 200px;
-    bottom: 24px;
+    width: 260px;
     margin-bottom: 0;
+    order: 3;
+    transform: translateY(-100px);
+    margin-bottom: -100px;
+    font-size: 18px;
   }
 }
 
