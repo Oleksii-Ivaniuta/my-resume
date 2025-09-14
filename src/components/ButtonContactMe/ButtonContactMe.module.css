@@ -63,3 +63,33 @@
 link:active::after {
   background-color: var(--basicorange);
 }
+
+@media screen and (min-width: 768px) {
+  .link::after {
+    width: 200px;
+    height: 64px;
+  }
+  .link_span {
+    font-size: 18px;
+    transform: translateX(-180px);
+  }
+  .link .link_span,
+  .link .link_span {
+    transform: translateX(-180px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .link::after {
+    width: 240px;
+    height: 72px;
+  }
+  .link_span {
+    font-size: 24px;
+    transform: translateX(-220px);
+  }
+  .link .link_span,
+  .link .link_span {
+    transform: translateX(-220px);
+  }
+}

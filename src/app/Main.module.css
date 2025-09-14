@@ -14,6 +14,10 @@
   padding: 8px;
 }
 
+.br {
+  display: none;
+}
+
 .hero_header {
   font-size: 24px;
 }
@@ -77,7 +81,7 @@
     margin-bottom: 0;
     order: 4;
     transform: translateY(-64px);
-    margin-right: 32px;
+    margin-right: 52px;
     margin-bottom: -100px;
   }
   .hero_text {
@@ -93,4 +97,28 @@
 /* laptop */
 
 @media screen and (min-width: 1024px) {
+  .thumb {
+    width: 600px;
+    height: 400px;
+  }
+
+  .br {
+    display: flex;
+  }
+
+  .hero_header {
+    font-size: 52px;
+    max-width: 240px;
+  }
+
+  .hero_text {
+    font-size: 24px;
+    width: 320px;
+    transform: translateY(-140px);
+    margin-bottom: -200px;
+  }
+
+  .btn {
+    margin-right: 72px;
+  }
 }

@@ -7,7 +7,7 @@ export default function Home() {
     <section className="container">
       <div className={css.main}>
   <h1 className={css.hero_header}>
-        HELLO, I AM <br />
+        HELLO,<br className={css.br}></br> I AM <br />
         <span>FULLSTACK DEVELOPER</span>
       </h1>
       <div className={css.thumb}>
