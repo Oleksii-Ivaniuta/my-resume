@@ -1,6 +1,6 @@
 import css from "./Main.module.css";
 import Image from "next/image";
-import ButtonContactMe from "../components/ButtonContactMe/ButtonContactMe";
+import ButtonContactMe from "../components/ButtonGetResume/ButtonGetResume";
 
 export default function Home() {
   return (
