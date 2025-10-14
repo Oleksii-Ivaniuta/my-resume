@@ -15,6 +15,10 @@
   margin-bottom: 8px;
 }
 
+.lang {
+  display: none;
+}
+
 .logo {
   font-family: var(--font-pt-sans);
   text-transform: uppercase;
@@ -29,10 +33,13 @@
 .nav_container {
   display: flex;
   flex-direction: row;
+  gap: 8px;
+  align-items: center;
 }
 
 .nav_list {
   display: none;
+  font-size: 14px;
 }
 
 .mobile_menu_btn {
@@ -53,6 +60,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .lang {
+    display: flex;
+  }
+
   .logo {
     font-size: 24px;
   }
@@ -68,7 +79,6 @@
     list-style: none;
     flex-direction: row;
     gap: 12px;
-    font-size: 14px;
   }
 }
 
