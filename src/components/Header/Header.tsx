@@ -1,6 +1,7 @@
 import Link from "next/link";
 import css from "./Header.module.css";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 export default function Header() {
   return (
@@ -11,8 +12,8 @@ export default function Header() {
       <nav className={css.nav_container}>
         <ul className={css.nav_list}>
           <li className={css.nav_item}>
-            <Link href="/bio" className={css.nav_link}>
-              Bio
+            <Link href="/about-me" className={css.nav_link}>
+              About me
             </Link>
           </li>
           <li className={css.nav_item}>
@@ -25,11 +26,13 @@ export default function Header() {
               Contacts
             </Link>
           </li>
+          <li className={css.lang}>
+            <LanguageSelect />
+          </li>
         </ul>
-        <div className={css.lang}>
-          <LanguageSelect />
+        <div className={css.mobile_menu}>
+          <MobileMenu />
         </div>
-              <button className={css.mobile_menu_btn}><svg width='32' height='32' className={css.burger}><use href="/icons.svg#burger-btn"/></svg></button>
       </nav>
     </header>
   );
