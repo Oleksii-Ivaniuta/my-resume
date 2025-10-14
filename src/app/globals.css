@@ -7,6 +7,7 @@
   --shadow014: rgba(0, 0, 0, 0.14);
   --shadow012: rgba(0, 0, 0, 0.12);
   --basicorange: rgb(236, 128, 57);
+  --basicgrey: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
     --shadow020: rgba(255, 255, 255, 0.2);
     --shadow014: rgba(255, 255, 255, 0.14);
     --shadow012: rgba(255, 255, 255, 0.12);
+    --basicgrey: #3a3a3a;
   }
 }
 
@@ -52,6 +54,10 @@ a {
   text-decoration: none;
 }
 
+footer {
+  flex-grow: 1;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -60,6 +66,9 @@ a {
 
 /* Styles for Mobile devices */
 .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   min-width: 320px;
   max-width: 767px;
   margin: 0 auto;

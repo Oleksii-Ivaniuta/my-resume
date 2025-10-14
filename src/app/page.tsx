@@ -4,7 +4,7 @@ import ButtonContactMe from "../components/ButtonContactMe/ButtonContactMe";
 
 export default function Home() {
   return (
-    <section className="container">
+    <section>
       <div className={css.main}>
   <h1 className={css.hero_header}>
         HELLO,<br className={css.br}></br> I AM <br />

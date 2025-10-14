@@ -7,7 +7,7 @@ export default function ButtonContactMe() {
     const router = useRouter();
 
     const contactMe = async () => {
-        const goToLink = () => router.push('/contact-me');
+        const goToLink = () => router.push('/contacts');
         setTimeout(goToLink, 400);
     }
 

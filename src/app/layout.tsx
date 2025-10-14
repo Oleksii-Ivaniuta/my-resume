@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Nunito_Sans, PT_Sans } from "next/font/google";
 import "./globals.css";
 import "modern-normalize";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -46,10 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunitoSans.variable} ${PTSans.variable}`}>
-        <main className="container">
+      <body className={`${nunitoSans.variable} ${PTSans.variable} container`}>
+        <Header/>
+        <main>
         {children}
         </main>
+        <Footer/>
       </body>
     </html>
   );
