@@ -7,7 +7,7 @@
   --shadow014: rgba(0, 0, 0, 0.14);
   --shadow012: rgba(0, 0, 0, 0.12);
   --basicorange: rgb(236, 128, 57);
-  --basicgrey: #e0e0e0;
+  --basicgrey: rgb(232, 234, 237);
   --basicgreyinverce: rgb(95, 99, 103);
 }
 
@@ -20,7 +20,7 @@
     --shadow020: rgba(255, 255, 255, 0.2);
     --shadow014: rgba(255, 255, 255, 0.14);
     --shadow012: rgba(255, 255, 255, 0.12);
-    --basicgrey: #3a3a3a;
+    --basicgrey: rgb(95, 99, 103);
     --basicgreyinverce: rgb(232, 234, 237);
   }
 }
