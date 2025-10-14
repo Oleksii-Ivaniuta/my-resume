@@ -55,7 +55,7 @@
   color: var(--foreground);
   width: 260px;
   transition: transform 0.3s ease-in-out;
-  padding: 56px 24px 100px 24px;
+  padding: 56px 24px 120px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
