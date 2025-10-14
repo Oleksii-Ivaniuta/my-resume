@@ -15,8 +15,38 @@
   margin-bottom: 8px;
 }
 
+.nav_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav_list {
+  display: none;
+}
+
+.mobile_menu_btn {
+  display: flex;
+}
+
 @media screen and (min-width: 768px) {
   .header_wraper {
     padding: 16px 32px;
+  }
+  .mobile_menu_btn {
+    display: none;
+  }
+  .nav_list {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    gap: 12px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav_list {
+    gap: 16px;
+    font-size: 16px;
   }
 }

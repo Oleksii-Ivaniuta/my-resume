@@ -7,13 +7,13 @@ export default function Header() {
         <nav className={css.nav_container}>
             <ul className={css.nav_list}>
                 <li className={css.nav_item}>
-                    <Link href='/bio' className={css.nav_link}>bio</Link>
+                    <Link href='/bio' className={css.nav_link}>Bio</Link>
                 </li>
                 <li className={css.nav_item}>
-                    <Link href='/portfolio' className={css.nav_link}>portfolio</Link>
+                    <Link href='/portfolio' className={css.nav_link}>Portfolio</Link>
                 </li>
                 <li className={css.nav_item}>
-                    <Link href='/contacts' className={css.nav_link}>contacts</Link>
+                    <Link href='/contacts' className={css.nav_link}>Contacts</Link>
                 </li>
             </ul>
             <button className={css.mobile_menu_btn}>btn</button>
