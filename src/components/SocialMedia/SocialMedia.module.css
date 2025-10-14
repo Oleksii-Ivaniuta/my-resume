@@ -1,0 +1,21 @@
+.sm_list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+}
+
+.sm_icon {
+  fill: var(--basicgreyinverce);
+  transition-property: fill;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.sm_icon:hover,
+.sm_icon:focus,
+.sm_icon:active {
+  fill: var(--basicorange);
+}

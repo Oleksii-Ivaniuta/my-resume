@@ -20,6 +20,7 @@
 
 .hero_header {
   font-size: 24px;
+  color: var(--basicgreyinverce);
 }
 
 .hero_header span {

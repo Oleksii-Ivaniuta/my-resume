@@ -15,8 +15,16 @@
   margin-top: 8px;
 }
 
+.sm {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .footer_wraper {
     padding: 16px 32px;
+  }
+
+  .sm {
+    display: flex;
   }
 }
