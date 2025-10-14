@@ -1,5 +1,8 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="burger-btn" viewBox="0 0 32 32">
+  <path d="M5.3335 8H26.6668V10.6667H5.3335V8ZM5.3335 14.6667H26.6668V17.3333H5.3335V14.6667ZM5.3335 21.3333H26.6668V24H5.3335V21.3333Z"/>
+</symbol>
 <symbol id="facebook" viewBox="0 0 32 32">
 <path d="M16 1.92c-7.776 0-14.080 6.304-14.080 14.080 0 7.059 5.2 12.888 11.976 13.906v-10.174h-3.484v-3.701h3.484v-2.463c0-4.077 1.987-5.868 5.375-5.868 1.623 0 2.481 0.12 2.888 0.175v3.231h-2.312c-1.439 0-1.941 1.364-1.941 2.901v2.023h4.216l-0.572 3.701h-3.644v10.204c6.872-0.932 12.174-6.808 12.174-13.936 0-7.776-6.304-14.080-14.080-14.080z"></path>
 </symbol>

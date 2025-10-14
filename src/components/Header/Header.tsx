@@ -29,7 +29,7 @@ export default function Header() {
         <div className={css.lang}>
           <LanguageSelect />
         </div>
-        <button className={css.mobile_menu_btn}>btn</button>
+              <button className={css.mobile_menu_btn}><svg width='32' height='32' className={css.burger}><use href="/icons.svg#burger-btn"/></svg></button>
       </nav>
     </header>
   );

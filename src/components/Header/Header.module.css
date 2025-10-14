@@ -44,6 +44,25 @@
 
 .mobile_menu_btn {
   display: flex;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  fill: var(--basicblack);
+  transition-property: fill;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.burger {
+  fill: inherit;
+}
+
+.mobile_menu_btn:hover,
+.mobile_menu_btn:focus,
+.mobile_menu_btn:active {
+  fill: var(--basicorange);
 }
 
 .nav_link {
