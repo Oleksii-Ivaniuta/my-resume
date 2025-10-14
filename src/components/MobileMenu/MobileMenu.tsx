@@ -7,9 +7,13 @@ import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { useState } from "react";
 
 export default function MobileMenu() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const openMenu = () => { setIsOpen(true) };
-    const closeMenu = () => { setIsOpen(false) };
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const openMenu = () => {
+    setIsOpen(true);
+  };
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className={css.container}>
@@ -20,10 +24,9 @@ export default function MobileMenu() {
           </svg>
         </button>
       </div>
-          <div className={`${css.overlay} ${isOpen && css.active}`}>
+      <div className={`${css.overlay} ${isOpen && css.active}`}>
         <div className={css.content}>
-                  <button className={css.close_btn}
-                  onClick={closeMenu}>
+          <button className={css.close_btn} onClick={closeMenu}>
             <svg width="32" height="32" className={css.cross}>
               <use href="/icons.svg#cross" />
             </svg>
@@ -53,7 +56,9 @@ export default function MobileMenu() {
               <LanguageSelect />
             </li>
           </ul>
-          <SocialMedia />
+          <div className={css.sm}>
+            <SocialMedia />
+          </div>
         </div>
       </div>
     </div>

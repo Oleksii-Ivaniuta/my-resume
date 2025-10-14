@@ -56,6 +56,9 @@
   width: 260px;
   transition: transform 0.3s ease-in-out;
   padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .overlay.active .content {
@@ -95,4 +98,12 @@
 .nav_link:focus,
 .nav_link:active {
   color: var(--basicorange);
+}
+
+.lang {
+  margin-top: 24px;
+}
+
+.sm {
+  align-self: center;
 }
