@@ -5,7 +5,7 @@ import "modern-normalize";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { i18n, Locale } from "@/lib/i18n/i18n-config";
+import { i18n, type Locale } from "@/lib/i18n/i18n-config";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -22,20 +22,27 @@ const PTSans = PT_Sans({
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
-  const dict = await getDictionary(params.locale);
+  const { lang: raw } = await params;
+  const lang: Locale = (i18n.locales as readonly string[]).includes(raw)
+    ? (raw as Locale)
+    : (i18n.defaultLocale as Locale);
+
+  // якщо словник у метаданих не потрібен — можна прибрати цей рядок
+  await getDictionary(lang);
+
+  const baseUrl = "https://my-resume-ten-delta.vercel.app";
+  const localizedUrl = `${baseUrl}/${lang}`;
 
   return {
     title: "Oleksii Ivaniuta - fullstack developer",
     description: "Website-resume of the fullstack Javascript developer",
-    icons: {
-      icon: "/favicon.svg",
-    },
+    icons: { icon: "/favicon.svg" },
     openGraph: {
       title: "Oleksii Ivaniuta - fullstack developer",
       description: "Website-resume of the fullstack Javascript developer",
-      url: "https://my-resume-ten-delta.vercel.app/",
+      url: localizedUrl,
       siteName: "Oleksii Ivaniuta",
       images: [
         {
@@ -51,22 +58,29 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return i18n.locales.map((lang) => ({ lang }));
 }
 
-export default async function RootLayout(props: {
+export default async function RootLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const params = await props.params;
-  const { children } = props;
-  const dictionary = await getDictionary(params.lang);
+  const { lang: raw } = await params;
+  const lang: Locale = (i18n.locales as readonly string[]).includes(raw)
+    ? (raw as Locale)
+    : (i18n.defaultLocale as Locale);
+
+  const dictionary = await getDictionary(lang);
+
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body className={`${nunitoSans.variable} ${PTSans.variable} container`}>
-        <Header dict={dictionary}/>
+        <Header dict={dictionary} />
         <main>{children}</main>
-        <Footer dict={dictionary}/>
+        <Footer dict={dictionary} />
       </body>
     </html>
   );
