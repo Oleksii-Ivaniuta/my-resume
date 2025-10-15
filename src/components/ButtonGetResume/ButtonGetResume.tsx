@@ -1,8 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
 import css from "./ButtonGetResume.module.css";
+import { Dictionary } from "@/types/dictionary";
 
-export default function ButtonContactMe() {
+interface ButtonContactMeProps {
+  dict: Dictionary,
+}
+
+export default function ButtonContactMe({dict}: ButtonContactMeProps) {
   const router = useRouter();
   const downloadResume = async () => {
     const getResume = () => {
@@ -15,7 +20,7 @@ export default function ButtonContactMe() {
   return (
     <div className={css.link_wraper}>
       <button onClick={downloadResume} className={css.link}>
-        <span className={css.link_span}>Get resume</span>
+        <span className={css.link_span}>{dict.common.getResume}</span>
       </button>
     </div>
   );

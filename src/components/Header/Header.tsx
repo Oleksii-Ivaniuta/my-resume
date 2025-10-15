@@ -2,8 +2,13 @@ import Link from "next/link";
 import css from "./Header.module.css";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import { Dictionary } from "@/types/dictionary";
 
-export default function Header() {
+interface HeaderProps {
+  dict: Dictionary;
+};
+
+export default function Header({dict}: HeaderProps) {
   return (
     <header className={css.header_wraper}>
       <Link href="/" className={css.logo}>
@@ -13,17 +18,17 @@ export default function Header() {
         <ul className={css.nav_list}>
           <li className={css.nav_item}>
             <Link href="/about-me" className={css.nav_link}>
-              About me
+              {dict.nav.aboutMe}
             </Link>
           </li>
           <li className={css.nav_item}>
             <Link href="/portfolio" className={css.nav_link}>
-              Portfolio
+              {dict.nav.portfolio}
             </Link>
           </li>
           <li className={css.nav_item}>
             <Link href="/contacts" className={css.nav_link}>
-              Contacts
+              {dict.nav.contacts}
             </Link>
           </li>
           <li className={css.lang}>

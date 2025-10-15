@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Início",
+    "aboutMe": "Sobre mim",
+    "portfolio": "Portfólio",
+    "contacts": "Contatos"
+  },
+  "home": {
+    "hero": {
+      "hi": "OLÁ,",
+      "iAm": "EU SOU",
+      "role": "DESENVOLVEDOR FULLSTACK",
+      "text": {
+        "prefix": "Eu crio",
+        "modern": "modernas",
+        "and": "e",
+        "responsive": "responsivas",
+        "webApps": "aplicações web que combinam",
+        "functionality": "funcionalidade",
+        "with": "com",
+        "cleanDesign": "design limpo",
+        "period": "."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Oleksii Ivaniuta. Todos os direitos reservados."
+  },
+  "common": {
+    "getResume": "O CURRÍCULO"
+  }
+}

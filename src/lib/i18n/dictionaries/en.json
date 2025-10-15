@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "aboutMe": "About me",
+    "portfolio": "Portfolio",
+    "contacts": "Contacts"
+  },
+  "home": {
+    "hero": {
+      "hi": "HELLO,",
+      "iAm": "I AM",
+      "role": "FULLSTACK DEVELOPER",
+      "text": {
+        "prefix": "I create",
+        "modern": "modern",
+        "and": "and",
+        "responsive": "responsive",
+        "webApps": "web applications that combine",
+        "functionality": "functionality",
+        "with": "with",
+        "cleanDesign": "clean design",
+        "period": "."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Oleksii Ivaniuta. All rights reserved."
+  },
+  "common": {
+    "getResume": "GET RESUME"
+  }
+}

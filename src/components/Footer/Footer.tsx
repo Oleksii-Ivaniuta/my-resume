@@ -1,10 +1,15 @@
+import { Dictionary } from "@/types/dictionary";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
 import css from "./Footer.module.css";
 
-export default function Footer() {
+interface FooterProps {
+  dict: Dictionary;
+};
+
+export default function Footer({dict}: FooterProps) {
   return (
     <footer className={css.footer_wraper}>
-      <p className={css.copyright}>© 2025 Oleksii Ivaniuta. All rights reserved.</p>
+      <p className={css.copyright}>{dict.footer.copyright}</p>
       <div className={css.sm}>
       <SocialMedia/>
       </div>
