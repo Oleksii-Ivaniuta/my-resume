@@ -36,7 +36,7 @@ export default function Header({dict}: HeaderProps) {
           </li>
         </ul>
         <div className={css.mobile_menu}>
-          <MobileMenu />
+          <MobileMenu dict={dict}/>
         </div>
       </nav>
     </header>

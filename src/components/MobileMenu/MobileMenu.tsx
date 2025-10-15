@@ -5,8 +5,13 @@ import css from "./MobileMenu.module.css";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { useState } from "react";
+import { Dictionary } from "@/types/dictionary";
 
-export default function MobileMenu() {
+interface MobileMenuProps {
+  dict: Dictionary
+}
+
+export default function MobileMenu({dict}: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const openMenu = () => {
     setIsOpen(true);
@@ -34,22 +39,22 @@ export default function MobileMenu() {
           <ul className={css.nav_list}>
             <li className={css.nav_item}>
               <Link href="/" className={css.nav_link}>
-                Home
+                {dict.nav.home}
               </Link>
             </li>
             <li className={css.nav_item}>
               <Link href="/about-me" className={css.nav_link}>
-                About me
+                {dict.nav.aboutMe}
               </Link>
             </li>
             <li className={css.nav_item}>
               <Link href="/portfolio" className={css.nav_link}>
-                Portfolio
+                {dict.nav.portfolio}
               </Link>
             </li>
             <li className={css.nav_item}>
               <Link href="/contacts" className={css.nav_link}>
-                Contacts
+                {dict.nav.contacts}
               </Link>
             </li>
             <li className={css.lang}>
