@@ -44,9 +44,9 @@
   color: var(--basicwhite);
 }
 
-.link_span::before {
+.link_span::after {
   position: absolute;
-  left: -20px;
+  left: 100px;
   content: "➝";
 }
 
@@ -78,8 +78,8 @@ link:active::after {
   .link .link_span {
     transform: translateX(-180px);
   }
-  .link_span::before {
-    left: -24px;
+  .link_span::after {
+    left: 124px;
   }
 }
 
@@ -96,7 +96,7 @@ link:active::after {
   .link .link_span {
     transform: translateX(-220px);
   }
-  .link_span::before {
-    left: -30px;
+  .link_span::after {
+    left: 158px;
   }
 }

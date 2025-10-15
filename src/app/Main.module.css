@@ -19,8 +19,9 @@
 }
 
 .hero_header {
-  font-size: 24px;
+  font-size: 28px;
   color: var(--basicgreyinverce);
+  align-self: flex-start;
 }
 
 .hero_header span {
