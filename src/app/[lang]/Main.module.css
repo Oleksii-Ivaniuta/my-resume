@@ -68,7 +68,7 @@
     padding: 32px;
   }
   .hero_header {
-    font-size: 36px;
+    font-size: 30px;
     max-width: 200px;
   }
   .thumb {
@@ -109,14 +109,14 @@
   }
 
   .hero_header {
-    font-size: 52px;
+    font-size: 42px;
     max-width: 240px;
   }
 
   .hero_text {
     font-size: 24px;
     width: 320px;
-    transform: translateY(-140px);
+    transform: translateY(-156px);
     margin-bottom: -200px;
   }
 
