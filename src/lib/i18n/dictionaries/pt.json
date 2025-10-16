@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "Oleksii Ivaniuta - Fullstack Dev",
+    "description": "Website-portfólio do desenvolvedor Fullstack JavaScript"
+  },
   "nav": {
     "home": "Início",
     "aboutMe": "Sobre mim",

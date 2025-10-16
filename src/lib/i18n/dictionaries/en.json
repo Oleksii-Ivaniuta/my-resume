@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "Oleksii Ivaniuta - fullstack developer",
+    "description": "Website-resume of the fullstack JavaScript developer"
+  },
   "nav": {
     "home": "Home",
     "aboutMe": "About me",

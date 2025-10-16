@@ -30,19 +30,18 @@ export async function generateMetadata({
     ? (raw as Locale)
     : (i18n.defaultLocale as Locale);
 
-  // якщо словник у метаданих не потрібен — можна прибрати цей рядок
-  await getDictionary(lang);
+  const dict = await getDictionary(lang);
 
   const baseUrl = "https://my-resume-ten-delta.vercel.app";
   const localizedUrl = `${baseUrl}/${lang}`;
 
   return {
-    title: "Oleksii Ivaniuta - fullstack developer",
-    description: "Website-resume of the fullstack Javascript developer",
+    title: dict.metadata.title,
+    description: dict.metadata.description,
     icons: { icon: "/favicon.svg" },
     openGraph: {
-      title: "Oleksii Ivaniuta - fullstack developer",
-      description: "Website-resume of the fullstack Javascript developer",
+      title: dict.metadata.title,
+      description: dict.metadata.description,
       url: localizedUrl,
       siteName: "Oleksii Ivaniuta",
       images: [

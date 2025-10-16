@@ -1,5 +1,8 @@
-// src/lib/i18n/types.ts
 export interface Dictionary {
+  metadata: {
+    title: string;
+    description: string;
+  };
   nav: {
     home: string;
     aboutMe: string;

@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "Олексій Іванюта — Fullstack розробник",
+    "description": "Вебсайт-резюме фулстек розробника JavaScript"
+  },
   "nav": {
     "home": "Головна",
     "aboutMe": "Про мене",
