@@ -2,6 +2,7 @@
 import { usePathname, useRouter, useParams } from "next/navigation";
 import css from "./LanguageSelect.module.css";
 import { Lang } from "@/types/types";
+import { useEffect } from "react";
 
 const LANGS: Record<Lang, string> = {
   en: "EN 🇬🇧",
@@ -27,9 +28,8 @@ export default function LanguageSelect() {
     const segments = pathname.split("/").filter(Boolean);
     const rest = segments.slice(1).join("/");
     router.replace(`/${newLang}${rest ? `/${rest}` : ""}`);
+    router.refresh()
   };
-
-  router.refresh();
 
   return (
     <div className={css.wrapper}>
