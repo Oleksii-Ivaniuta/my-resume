@@ -7,6 +7,7 @@ import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { useState } from "react";
 import { Dictionary } from "@/types/dictionary";
 
+
 interface MobileMenuProps {
   dict: Dictionary
 }
@@ -20,6 +21,12 @@ export default function MobileMenu({dict}: MobileMenuProps) {
     setIsOpen(false);
   };
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      closeMenu();
+    }
+  };
+
   return (
     <div className={css.container}>
       <div className={css.container}>
@@ -29,7 +36,7 @@ export default function MobileMenu({dict}: MobileMenuProps) {
           </svg>
         </button>
       </div>
-      <div className={`${css.overlay} ${isOpen && css.active}`}>
+      <div onClick={handleBackdropClick} className={`${css.overlay} ${isOpen && css.active}`}>
         <div className={css.content}>
           <button className={css.close_btn} onClick={closeMenu}>
             <svg width="32" height="32" className={css.cross}>
