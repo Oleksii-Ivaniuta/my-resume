@@ -76,6 +76,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
+  border-radius: 8px;
 }
 
 .edu_pict_thumb img {
@@ -93,6 +94,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
+  border-radius: 8px;
 }
 
 .work_pict_thumb img {
@@ -100,6 +102,19 @@
   height: auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+.work_pict_thumb {
+}
+
+.work_wrapper .list {
+  margin-bottom: 12px;
+}
+
+.work_articles_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 @media screen and (min-width: 768px) {

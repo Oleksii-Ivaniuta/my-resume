@@ -27,6 +27,69 @@
       }
     }
   },
+  "about": {
+    "heading": { "a": "About", "b": "me" },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "name": "IT School GoIT",
+          "url": "https://goit.global",
+          "degree": "Fullstack Developer",
+          "years": "2024 – 2025"
+        },
+        {
+          "name": "Ivan Franko Zhytomyr State University",
+          "url": "https://zu.edu.ua/en_index.html",
+          "degree": "PhD in Theory and Methods of Vocational Training",
+          "years": "2011 – 2018"
+        },
+        {
+          "name": "National University of Life and Environmental Sciences of Ukraine",
+          "url": "https://nubip.edu.ua/en",
+          "degree": "Master’s in Public Administration",
+          "years": "2012 – 2014"
+        },
+        {
+          "name": "National University of Life and Environmental Sciences of Ukraine",
+          "url": "https://nubip.edu.ua/en",
+          "degree": "Master’s in Land Management",
+          "years": "2004 – 2009"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "summary": [
+        {
+          "role": "Assistant Professor",
+          "org": "National University of Life and Environmental Sciences of Ukraine",
+          "years": "2010 – 2015"
+        },
+        {
+          "role": "Entrepreneur / Business Owner",
+          "org": "Food and Craft Brewery Industry",
+          "years": "2015 – 2025"
+        }
+      ],
+      "details": [
+        {
+          "title": "Assistant Professor",
+          "paragraphs": [
+            "Conducted laboratory classes and practical training in <strong>Geographic Information Systems (GIS)</strong>, <strong>digital cartography</strong>, and <strong>Earth remote sensing</strong>. Guided students in spatial data processing, geospatial analysis, and cartographic visualization using modern tools.",
+            "Participated in <strong>scientific research</strong> and contributed to academic publications. Completed part-time PhD studies and carried out original research in <strong>theory and methods of vocational training</strong>. In 2018, successfully defended a <strong>PhD in Pedagogical Sciences</strong>."
+          ]
+        },
+        {
+          "title": "Entrepreneur / Business Owner",
+          "paragraphs": [
+            "Founded and managed multiple ventures in hospitality and craft beer, including <strong>three restaurant establishments</strong> and a <strong>private brewery</strong>. Oversaw concept, supply chains, quality control, and team operations.",
+            "Introduced process optimization and elements of automation in production and logistics, combining creativity with a systematic approach to ensure high standards and sustainable growth."
+          ]
+        }
+      ]
+    }
+  },
   "footer": {
     "copyright": "© 2025 Oleksii Ivaniuta. All rights reserved."
   },

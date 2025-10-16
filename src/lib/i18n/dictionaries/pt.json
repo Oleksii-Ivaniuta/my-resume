@@ -13,12 +13,12 @@
     "hero": {
       "hi": "OLÁ,",
       "iAm": "EU SOU",
-      "role": "DEV FULLSTACK",
+      "role": "FULLSTACK DEV",
       "text": {
         "prefix": "Eu crio",
-        "modern": "modernas",
+        "modern": "modernos",
         "and": "e",
-        "responsive": "responsivas",
+        "responsive": "responsivos",
         "webApps": "aplicações web que combinam",
         "functionality": "funcionalidade",
         "with": "com",
@@ -27,10 +27,73 @@
       }
     }
   },
+  "about": {
+    "heading": { "a": "Sobre", "b": "mim" },
+    "education": {
+      "title": "Educação",
+      "items": [
+        {
+          "name": "IT School GoIT",
+          "url": "https://goit.global",
+          "degree": "Fullstack Developer",
+          "years": "2024 – 2025"
+        },
+        {
+          "name": "Ivan Franko Zhytomyr State University",
+          "url": "https://zu.edu.ua/en_index.html",
+          "degree": "PhD em Teoria e Métodos da Formação Profissional",
+          "years": "2011 – 2018"
+        },
+        {
+          "name": "National University of Life and Environmental Sciences of Ukraine",
+          "url": "https://nubip.edu.ua/en",
+          "degree": "Mestrado em Administração Pública",
+          "years": "2012 – 2014"
+        },
+        {
+          "name": "National University of Life and Environmental Sciences of Ukraine",
+          "url": "https://nubip.edu.ua/en",
+          "degree": "Mestrado em Gestão do Território (Land Management)",
+          "years": "2004 – 2009"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experiência Profissional",
+      "summary": [
+        {
+          "role": "Assistant Professor",
+          "org": "National University of Life and Environmental Sciences of Ukraine",
+          "years": "2010 – 2015"
+        },
+        {
+          "role": "Empreendedor / Proprietário",
+          "org": "Restauração e Cervejaria Artesanal",
+          "years": "2015 – 2025"
+        }
+      ],
+      "details": [
+        {
+          "title": "Assistant Professor",
+          "paragraphs": [
+            "Ministrei aulas laboratoriais e práticas em <strong>SIG (GIS)</strong>, <strong>cartografia digital</strong> e <strong>sensoriamento remoto da Terra</strong>. Apoiei alunos em processamento de dados espaciais, análise geoespacial e visualização cartográfica com ferramentas modernas.",
+            "Participei de <strong>projetos de investigação</strong> e publicações académicas. Concluí o doutoramento em regime parcial com investigação em <strong>teoria e métodos da formação profissional</strong>. Em 2018, defendi a <strong>tese de doutoramento em Ciências Pedagógicas</strong>."
+          ]
+        },
+        {
+          "title": "Empreendedor / Proprietário",
+          "paragraphs": [
+            "Fundei e gerenciei vários negócios na área de hospitalidade e cerveja artesanal, incluindo <strong>três restaurantes</strong> e uma <strong>cervejaria própria</strong>. Supervisei conceito, cadeias de abastecimento, qualidade e equipa.",
+            "Implementei otimização de processos e elementos de automação na produção e logística, garantindo padrões elevados e crescimento sustentável."
+          ]
+        }
+      ]
+    }
+  },
   "footer": {
     "copyright": "© 2025 Oleksii Ivaniuta. Todos os direitos reservados."
   },
   "common": {
-    "getResume": "CURRÍCULO"
+    "getResume": "OBTER O CURRÍCULO"
   }
 }

@@ -1,3 +1,4 @@
+// src/lib/i18n/types.ts
 export interface Dictionary {
   metadata: {
     title: string;
@@ -25,6 +26,30 @@ export interface Dictionary {
         cleanDesign: string;
         period: string;
       };
+    };
+  };
+  about: {
+    heading: { a: string; b: string };
+    education: {
+      title: string;
+      items: Array<{
+        name: string;
+        url: string;
+        degree: string;
+        years: string;
+      }>;
+    };
+    experience: {
+      title: string;
+      summary: Array<{
+        role: string;
+        org: string;
+        years: string;
+      }>;
+      details: Array<{
+        title: string;
+        paragraphs: string[];
+      }>;
     };
   };
   footer: {
