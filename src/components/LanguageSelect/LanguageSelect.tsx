@@ -2,7 +2,6 @@
 import { usePathname, useRouter, useParams } from "next/navigation";
 import css from "./LanguageSelect.module.css";
 import { Lang } from "@/types/types";
-import { useEffect } from "react";
 
 const LANGS: Record<Lang, string> = {
   en: "EN 🇬🇧",
