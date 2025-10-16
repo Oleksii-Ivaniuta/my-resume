@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter, useParams } from "next/navigation";
 import css from "./LanguageSelect.module.css";
 import { Lang } from "@/types/types";
 
@@ -9,24 +9,34 @@ const LANGS: Record<Lang, string> = {
   uk: "UK 🇺🇦",
 };
 
+function setLangCookie(lang: Lang) {
+  document.cookie = `lang=${lang}; Max-Age=${60 * 60 * 24 * 180}; Path=/; SameSite=Lax`;
+}
+
 export default function LanguageSelect() {
-  const [lang, setLang] = useState<Lang>("en");
+  const router = useRouter();
+  const pathname = usePathname();
+  const { lang: urlLang } = useParams<{ lang: string }>();
 
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as Lang | null;
-    if (saved) setLang(saved);
-  }, []);
+  const current = (Object.keys(LANGS) as Lang[]).includes(urlLang as Lang)
+    ? (urlLang as Lang)
+    : "en";
 
-  useEffect(() => {
-    localStorage.setItem("lang", lang);
-  }, [lang]);
+  const onChange = (newLang: Lang) => {
+    setLangCookie(newLang);
+    try { localStorage.setItem("lang", newLang); } catch {}
+    const segments = pathname.split("/").filter(Boolean);
+    const rest = segments.slice(1).join("/");
+    router.replace(`/${newLang}${rest ? `/${rest}` : ""}`);
+  };
 
   return (
     <div className={css.wrapper}>
-      <select className={css.select}
+      <select
+        className={css.select}
         id="lang"
-        value={lang}
-        onChange={(e) => setLang(e.target.value as Lang)}
+        value={current}
+        onChange={(e) => onChange(e.target.value as Lang)}
         aria-label="Select language"
       >
         {Object.entries(LANGS).map(([value, label]) => (

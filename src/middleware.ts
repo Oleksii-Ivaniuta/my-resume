@@ -3,13 +3,16 @@ import type { NextRequest } from "next/server";
 import { i18n } from "@/lib/i18n/i18n-config";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
+import { Lang } from "./types/types";
 
-function getLocale(request: NextRequest): string {
+const LOCALES = [...i18n.locales];
+const DEFAULT = i18n.defaultLocale;
+
+function getLocaleFromAcceptLanguage(request: NextRequest): string {
   const headers: Record<string, string> = {};
   request.headers.forEach((v, k) => (headers[k] = v));
-  const locales = [...i18n.locales];
   const languages = new Negotiator({ headers }).languages();
-  return matchLocale(languages, locales, i18n.defaultLocale);
+  return matchLocale(languages, LOCALES, DEFAULT);
 }
 
 export function middleware(request: NextRequest) {
@@ -23,23 +26,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const hasLocale = i18n.locales.some(
+  const hasLocale = LOCALES.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
   );
-  if (hasLocale) {
-    return NextResponse.next();
-  }
+  if (hasLocale) return NextResponse.next();
 
-  if (pathname === "/") {
-    const best = getLocale(request);
-    const url = request.nextUrl.clone();
-    url.pathname = `/${best}`;
-    return NextResponse.redirect(url);
-  }
+  const cookieLang = request.cookies.get("lang")?.value as Lang;
+  const chosen =
+    cookieLang && LOCALES.includes(cookieLang) ? cookieLang : getLocaleFromAcceptLanguage(request);
 
-  const best = getLocale(request);
   const url = request.nextUrl.clone();
-  url.pathname = `/${best}${pathname}`;
+  url.pathname = pathname === "/" ? `/${chosen}` : `/${chosen}${pathname}`;
   url.search = search;
   return NextResponse.redirect(url);
 }
