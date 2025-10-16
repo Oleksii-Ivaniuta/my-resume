@@ -30,6 +30,8 @@ export default function LanguageSelect() {
     router.replace(`/${newLang}${rest ? `/${rest}` : ""}`);
   };
 
+  router.refresh();
+
   return (
     <div className={css.wrapper}>
       <select
