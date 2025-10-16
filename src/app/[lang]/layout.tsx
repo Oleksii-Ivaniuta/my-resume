@@ -6,7 +6,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { i18n, type Locale } from "@/lib/i18n/i18n-config";
-import { cookies } from "next/headers";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -72,15 +71,6 @@ export default async function RootLayout({
   const lang: Locale = (i18n.locales as readonly string[]).includes(raw)
     ? (raw as Locale)
     : (i18n.defaultLocale as Locale);
-
-   const store = cookies();
-  if ((await store).get("lang")?.value !== lang) {
-    (await store).set("lang", lang, {
-      maxAge: 60 * 60 * 24 * 180,
-      path: "/",
-      sameSite: "lax",
-    });
-  }
 
   const dictionary = await getDictionary(lang);
 
