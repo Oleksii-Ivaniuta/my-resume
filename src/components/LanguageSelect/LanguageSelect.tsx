@@ -24,7 +24,6 @@ export default function LanguageSelect() {
 
   const onChange = (newLang: Lang) => {
     setLangCookie(newLang);
-    try { localStorage.setItem("lang", newLang); } catch {}
     const segments = pathname.split("/").filter(Boolean);
     const rest = segments.slice(1).join("/");
     router.replace(`/${newLang}${rest ? `/${rest}` : ""}`);
