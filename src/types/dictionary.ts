@@ -90,7 +90,8 @@ export interface Dictionary {
       title: string;
       location: string;
       email: string;
-      phone: string;
+                phone: string;
+                address: string;
     };
   };
 }

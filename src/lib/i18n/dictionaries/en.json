@@ -128,7 +128,8 @@
       "title": "Contacts",
       "location": "Location:",
       "email": "Email:",
-      "phone": "Phone:"
+      "phone": "Phone:",
+      "address": "Lisbon, Portugal"
     }
   }
 }

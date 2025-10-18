@@ -10,7 +10,7 @@
     0px 3px 4px 0px var(--shadow014),
     0px 1px 8px 0px var(--shadow012);
   padding: 8px;
-  gap: 12px;
+  gap: 24px;
 }
 
 .form {
@@ -43,6 +43,7 @@
 
 .item_name {
   font-weight: bold;
+  color: var(--basicgreyinverce);
 }
 
 @media screen and (min-width: 768px) {
