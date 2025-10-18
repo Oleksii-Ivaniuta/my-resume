@@ -95,5 +95,40 @@
   },
   "common": {
     "getResume": "CURRÍCULO"
+  },
+  "contact": {
+    "form": {
+      "legend": "Envie-me a sua mensagem",
+      "nameLabel": "O seu nome",
+      "emailLabel": "O seu e-mail",
+      "messageLabel": "A sua mensagem",
+      "submit": "Enviar",
+      "validation": {
+        "name": {
+          "min": "O nome deve ter pelo menos {min} caracteres",
+          "max": "O nome é demasiado longo",
+          "required": "O nome é obrigatório"
+        },
+        "email": {
+          "invalid": "Formato de e-mail inválido",
+          "required": "O e-mail é obrigatório"
+        },
+        "message": {
+          "min": "A mensagem deve ter pelo menos {min} caracteres",
+          "max": "A mensagem deve ter no máximo {max} caracteres",
+          "required": "A mensagem é obrigatória"
+        }
+      },
+      "feedback": {
+        "success": "Mensagem enviada com sucesso!",
+        "error": "Erro ao enviar! Tente novamente mais tarde"
+      }
+    },
+    "info": {
+      "title": "Contatos",
+      "location": "Localização:",
+      "email": "E-mail:",
+      "phone": "Telefone:"
+    }
   }
 }

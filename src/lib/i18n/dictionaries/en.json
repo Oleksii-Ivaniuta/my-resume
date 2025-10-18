@@ -95,5 +95,40 @@
   },
   "common": {
     "getResume": "GET RESUME"
+  },
+  "contact": {
+    "form": {
+      "legend": "Send me your message",
+      "nameLabel": "Your name",
+      "emailLabel": "Your email",
+      "messageLabel": "Your message",
+      "submit": "Send",
+      "validation": {
+        "name": {
+          "min": "Name must be at least {min} characters",
+          "max": "Name is too long",
+          "required": "Name is required"
+        },
+        "email": {
+          "invalid": "Invalid email format",
+          "required": "Email is required"
+        },
+        "message": {
+          "min": "Message must be at least {min} characters",
+          "max": "Message must be up to {max} characters",
+          "required": "Message is required"
+        }
+      },
+      "feedback": {
+        "success": "Message successfully sent!",
+        "error": "Sending error! Please try again later"
+      }
+    },
+    "info": {
+      "title": "Contacts",
+      "location": "Location:",
+      "email": "Email:",
+      "phone": "Phone:"
+    }
   }
 }

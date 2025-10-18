@@ -58,4 +58,39 @@ export interface Dictionary {
   common: {
     getResume: string;
   };
+     contact: {
+    form: {
+      legend: string;
+      nameLabel: string;
+      emailLabel: string;
+      messageLabel: string;
+      submit: string;
+      validation: {
+        name: {
+          min: string;
+          max: string;
+          required: string;
+        };
+        email: {
+          invalid: string;
+          required: string;
+        };
+        message: {
+          min: string;
+          max: string;
+          required: string;
+        };
+      };
+      feedback: {
+        success: string;
+        error: string;
+      };
+         };
+            info: {
+      title: string;
+      location: string;
+      email: string;
+      phone: string;
+    };
+  };
 }

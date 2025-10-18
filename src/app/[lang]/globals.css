@@ -39,6 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
+  line-height: 1.15;
 }
 
 h1 {
@@ -64,6 +65,11 @@ footer {
   html {
     color-scheme: dark;
   }
+}
+
+.toast {
+  background-color: var(--basicgrey);
+  color: var(--basicblack);
 }
 
 /* Styles for Mobile devices */
