@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${token}`,
       },
         });
-        return NextResponse.json({ ok: true, message: apiRes.data.message });
+        return NextResponse.json({ status: 200, message: apiRes.data.message });
     }
     catch (e) {
     return NextResponse.json(

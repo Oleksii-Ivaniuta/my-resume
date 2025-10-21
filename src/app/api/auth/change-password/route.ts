@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    return NextResponse.json({ ok: true, message: apiRes.data.message });
+    return NextResponse.json({ status: 200, message: apiRes.data.message });
   } catch (e) {
     return NextResponse.json(
       { error: (e as Error)?.message ?? "Server error" },

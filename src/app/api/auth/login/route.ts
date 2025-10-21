@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
         cookieStore.set("refreshToken", parsed.refreshToken, options);
     }
 
-    return NextResponse.json("login successful");
+    return NextResponse.json({status: 200, message: "login successfull"});
   }
   }
   catch {
