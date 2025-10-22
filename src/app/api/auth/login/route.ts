@@ -17,18 +17,16 @@ export async function POST(req: NextRequest) {
     
   const cookieStore = await cookies();
   const setCookie = apiRes.headers["set-cookie"];
-  const accessToken : string | undefined = apiRes.data?.accessToken;
+  const accessToken : string | undefined = apiRes.data?.data.accessToken;
 
    if (!accessToken) {
       return NextResponse.json({ error: "No access token" }, { status: 500 });
    }
-    
-    const ACCESS_TTL_SEC = 15 * 60;
+      
     cookieStore.set("accessToken", accessToken, {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      maxAge: ACCESS_TTL_SEC,
     });
 
 

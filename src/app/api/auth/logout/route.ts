@@ -18,7 +18,7 @@ export async function POST() {
     cookieStore.delete("refreshToken");
     cookieStore.delete("sessionId");
 
-    return NextResponse.json({ message: "Logged out successfully" });
+    return NextResponse.json({ status: 200, message: "Logged out successfully" });
   } catch (error) {
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

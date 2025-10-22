@@ -46,11 +46,7 @@ export async function POST(request: NextRequest) {
           cookieStore.set("refreshToken", parsed.refreshToken, options);
       }
 
-      return NextResponse.redirect(new URL(next, request.url), {
-        headers: {
-          "set-cookie": cookieStore.toString(),
-        },
-      });
+      return apiRes;
     }
   }
   return NextResponse.redirect(new URL("/admin", request.url));

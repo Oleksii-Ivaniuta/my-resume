@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { i18n, type Locale } from "@/lib/i18n/i18n-config";
 import TanStackProvider from "@/components/TanstackProvider/TanstackProvider";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -79,9 +80,12 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className={`${nunitoSans.variable} ${PTSans.variable} container`}>
         <TanStackProvider>
-          <Header dict={dictionary} />
-          <main>{children}</main>
-          <Footer dict={dictionary} />
+          <AuthProvider>
+            {" "}
+            <Header dict={dictionary} />
+            <main>{children}</main>
+            <Footer dict={dictionary} />
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

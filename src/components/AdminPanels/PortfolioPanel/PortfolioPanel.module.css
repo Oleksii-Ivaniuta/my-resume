@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+}
+
+.btn {
+  align-self: center;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 180px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: var(--basicorange);
+  color: white;
+  transition: background-color 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgba(236, 128, 57, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    gap: 16px;
+  }
+}

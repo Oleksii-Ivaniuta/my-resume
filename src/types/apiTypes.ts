@@ -9,6 +9,7 @@ export type LoginResponse = {
 };
 
 export type LogoutResponse = {
+  status: number
     message?: string;
 }
 

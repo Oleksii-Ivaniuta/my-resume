@@ -1,10 +1,7 @@
-import axios from "axios";
-import { ENV_VARS } from "@/constants/envVars";
-import { getEnvVar } from "@/utils/getEnvVar";
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import {
   ChangePasswordRequest,
   ChangePasswordResponse,
-  CreateProjectRequest,
   CreateProjectResponse,
   DeleteProjectByIdResponse,
   GetProjectByIdResponse,
@@ -15,12 +12,11 @@ import {
   LogoutResponse,
   SendMessageRequest,
   SendMessageResponse,
-  UpdateProjectRequest,
   UpdateProjectResponse,
 } from "@/types/apiTypes";
 
 export const nextServer = axios.create({
-  baseURL: process.env['NEXT_PUBLIC_BASE_URL'] + "api",
+  baseURL: process.env["NEXT_PUBLIC_BASE_URL"] + "api",
   withCredentials: true,
 });
 
@@ -34,19 +30,6 @@ export const logout = async () => {
   return res.data;
 };
 
-export const changePassword = async (data: ChangePasswordRequest) => {
-  const res = await nextServer.post<ChangePasswordResponse>(
-    "/auth/change-password",
-    data
-  );
-  return res.data;
-};
-
-export const refresh = async () => {
-  const res = await nextServer.post("/auth/refresh");
-  return res;
-};
-
 export const sendMessage = async (data: SendMessageRequest) => {
   const res = await nextServer.post<SendMessageResponse>("/send-mail", data);
   console.log(res);
@@ -58,11 +41,6 @@ export const getProjects = async (params: GetProjectsRequest) => {
   return res;
 };
 
-export const createProject = async (data: CreateProjectRequest) => {
-  const res = await nextServer.post<CreateProjectResponse>("/projects", data);
-  return res;
-};
-
 export const getProjectById = async (projectId: string) => {
   const res = await nextServer.get<GetProjectByIdResponse>(
     `/projects/${projectId}`
@@ -70,20 +48,69 @@ export const getProjectById = async (projectId: string) => {
   return res;
 };
 
-export const deleteProjectById = async (projectId: string) => {
-  const res = await nextServer.delete<DeleteProjectByIdResponse>(
-    `/projects/${projectId}`
-  );
-  return res;
+export const checkSession = async () => {
+  const res = await nextServer.get<{ authenticated: boolean }>("/status/");
+  return res.data.authenticated;
 };
 
-export const updateProjectById = async (
-  projectId: string,
-  data: UpdateProjectRequest
-) => {
-  const res = await nextServer.patch<UpdateProjectResponse>(
-    `/projects/${projectId}`,
-    data
-  );
-  return res;
+async function refresh() {
+  try {
+    const refresh = await nextServer.post("/auth/refresh");
+    if (refresh.status === 200) {
+      return true;
+    }
+    console.log("refresh failed:");
+  } catch (e) {
+    console.log("refresh failed:", (e as Error).message);
+    return false;
+  }
+}
+
+async function requestWithAutoRefresh<T>(
+  config: AxiosRequestConfig
+): Promise<T> {
+  try {
+    const res = await nextServer.request<T>(config);
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError;
+    if (err.response?.status === 401) {
+      const ok = await refresh();
+      if (!ok) throw err;
+      const retry = await nextServer.request<T>(config);
+      return retry.data;
+    }
+    throw err;
+  }
+}
+
+export const changePassword = async (data: ChangePasswordRequest) => {
+  return requestWithAutoRefresh<ChangePasswordResponse>({
+    method: "POST",
+    url: "/auth/change-password",
+    data,
+  });
+};
+
+export const createProject = async (data: FormData) => {
+  return requestWithAutoRefresh<CreateProjectResponse>({
+    method: "POST",
+    url: "/projects",
+    data,
+  });
+};
+
+export const deleteProjectById = async (projectId: string) => {
+  return requestWithAutoRefresh<DeleteProjectByIdResponse>({
+    method: "DELETE",
+    url: `/projects/${projectId}`,
+  });
+};
+
+export const updateProjectById = async (projectId: string, data: FormData) => {
+  return requestWithAutoRefresh<UpdateProjectResponse>({
+    method: "PATCH",
+    url: `/projects/${projectId}`,
+    data,
+  });
 };
