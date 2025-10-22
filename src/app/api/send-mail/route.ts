@@ -1,4 +1,4 @@
-import { getEnvVar } from "@/app/utils/getEnvVar";
+import { getEnvVar } from "@/utils/getEnvVar";
 import { ENV_VARS } from "@/constants/envVars";
 import { NextRequest, NextResponse } from "next/server";
 import { api } from "../api";

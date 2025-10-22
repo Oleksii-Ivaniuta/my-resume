@@ -12,6 +12,7 @@ import { useEffect, useId } from "react";
 import * as Yup from "yup";
 import { Dictionary } from "@/types/dictionary";
 import toast, { Toaster } from "react-hot-toast";
+import { sendMessage } from "@/lib/api/api";
 
 type ContactFormValues = {
   name: string;
@@ -74,7 +75,10 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
     actions: FormikHelpers<ContactFormValues>
   ) => {
     console.log("Submit:", values);
-    try { localStorage.removeItem("contactForm"); } catch {}
+    try {
+      sendMessage(values);
+      localStorage.removeItem("contactForm"); 
+    } catch {}
     actions.resetForm({ values: { name: "", email: "", message: "" } });
 
       toast.success(dict.contact.form.feedback.success);
