@@ -70,19 +70,24 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
   const fieldId = useId();
   const initialValues = getInitialValues();
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: ContactFormValues,
     actions: FormikHelpers<ContactFormValues>
   ) => {
     console.log("Submit:", values);
     try {
-      sendMessage(values);
-      localStorage.removeItem("contactForm"); 
-    } catch {}
-    actions.resetForm({ values: { name: "", email: "", message: "" } });
-
-      toast.success(dict.contact.form.feedback.success);
-    //   toast.error(dict.contact.form.feedback.error);
+      const res = await sendMessage(values);
+      localStorage.removeItem("contactForm");
+      if (res.status === 200) {
+        toast.success(dict.contact.form.feedback.success);
+        actions.resetForm({ values: { name: "", email: "", message: "" } });
+      }
+      else {
+   toast.error(dict.contact.form.feedback.error);
+      }
+    } catch {
+      toast.error(dict.contact.form.feedback.error);
+    }
   };
 
   return (
