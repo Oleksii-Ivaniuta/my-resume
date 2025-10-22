@@ -22,12 +22,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No access token" }, { status: 500 });
     }
 
-    const ACCESS_TTL_SEC = 15 * 60;
     cookieStore.set("accessToken", accessToken, {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      maxAge: ACCESS_TTL_SEC,
     });
 
     const setCookie = apiRes.headers["set-cookie"];
@@ -46,7 +44,7 @@ export async function POST(request: NextRequest) {
           cookieStore.set("refreshToken", parsed.refreshToken, options);
       }
 
-      return apiRes;
+      return NextResponse.json(apiRes.data, { status: apiRes.status });
     }
   }
   return NextResponse.redirect(new URL("/admin", request.url));

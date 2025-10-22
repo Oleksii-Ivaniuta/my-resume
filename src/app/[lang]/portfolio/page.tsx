@@ -6,7 +6,6 @@ import { useAuthStore } from '@/lib/store/authStore';
 import PortfolioPanel from '@/components/AdminPanels/PortfolioPanel/PortfolioPanel';
 
 export default function Portfolio() {
-    console.log("Auth state:", useAuthStore.getState().isAuthenticated);
     const fetchProjects = useQuery({
     queryKey: ['Projects'],
         queryFn: () => getProjects({ params: { page: 1, perPage: 6, sortOrder: "desc"} }),

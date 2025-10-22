@@ -1,5 +1,5 @@
 'use client'
-import LoginForm from "@/components/LoginForm/LoginForm";
+import LoginForm from "@/components/AdminPanels/LoginForm/LoginForm";
 import css from "./Admin.module.css";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useRouter } from "next/navigation";
