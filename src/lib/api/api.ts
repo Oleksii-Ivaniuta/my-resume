@@ -48,10 +48,22 @@ export const getProjectById = async (projectId: string) => {
   return res;
 };
 
+
+export const changePassword = async (data: ChangePasswordRequest) => {
+  const res = await nextServer.post<ChangePasswordResponse>(
+    '/auth/change-password', data
+  );
+  return res;
+};
+
+
+
 export const checkSession = async () => {
   const res = await nextServer.get<{ authenticated: boolean }>("/status/");
   return res.data.authenticated;
 };
+
+
 
 async function refresh() {
   try {
@@ -83,14 +95,6 @@ async function requestWithAutoRefresh<T>(
     throw err;
   }
 }
-
-export const changePassword = async (data: ChangePasswordRequest) => {
-  return requestWithAutoRefresh<ChangePasswordResponse>({
-    method: "POST",
-    url: "/auth/change-password",
-    data,
-  });
-};
 
 export const createProject = async (data: FormData) => {
   return requestWithAutoRefresh<CreateProjectResponse>({

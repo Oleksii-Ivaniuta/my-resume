@@ -1,0 +1,61 @@
+.btn_close {
+  display: flex;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  fill: var(--basicgreyinverce);
+  align-self: flex-end;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0.3s ease-in-out;
+  z-index: 100;
+  padding: 8px;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.window {
+  background-color: var(--basicwhite);
+  max-height: calc(100dvh - 16px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 0;
+  border-radius: 8px;
+  gap: 16px;
+  box-shadow:
+    0px 3px 3px -2px var(--shadow020),
+    0px 3px 4px 0px var(--shadow014),
+    0px 1px 8px 0px var(--shadow012);
+  padding: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .window {
+    padding: 32px;
+  }
+  .overlay {
+    padding: 16px;
+  }
+}

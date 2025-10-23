@@ -15,7 +15,6 @@ export default function Portfolio() {
 const result = fetchProjects.data?.data.data
  console.log(result);
  
-    
 
     return (<section className={css.portfolio}>
         {useAuthStore.getState().isAuthenticated && <PortfolioPanel/>}
