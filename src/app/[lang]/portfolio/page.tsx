@@ -18,7 +18,7 @@ export default function Portfolio() {
   return (
     <section className={css.portfolio}>
       {useAuthStore.getState().isAuthenticated && <PortfolioPanel />}
-      <h2 className={css.header}>My projects</h2>
+      <h2 className={css.sect_header}>My <span>projects</span></h2>
       <ul className={css.list}>
         {isSuccess &&
           data.data.map((proj) => {

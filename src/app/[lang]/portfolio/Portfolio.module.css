@@ -12,6 +12,18 @@
   padding: 8px;
 }
 
+.sect_header {
+  font-family: var(--font-pt-sans);
+  text-transform: uppercase;
+  color: var(--basicgreyinverce);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.sect_header span {
+  color: var(--basicorange);
+}
+
 .list {
   display: flex;
   flex-direction: column;
@@ -33,7 +45,15 @@
   .item {
     max-width: 320px;
   }
+
+  .sect_header {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
+  .sect_header {
+    font-size: 36px;
+  }
 }
