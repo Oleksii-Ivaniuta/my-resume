@@ -32,13 +32,12 @@ export const logout = async () => {
 
 export const sendMessage = async (data: SendMessageRequest) => {
   const res = await nextServer.post<SendMessageResponse>("/send-mail", data);
-  console.log(res);
   return res;
 };
 
 export const getProjects = async (params: GetProjectsRequest) => {
   const res = await nextServer.get<GetProjectsResponse>("/projects", params);
-  return res;
+  return res.data.data;
 };
 
 export const getProjectById = async (projectId: string) => {

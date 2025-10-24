@@ -11,7 +11,7 @@ import css from "./ContactForm.module.css";
 import { useEffect, useId } from "react";
 import * as Yup from "yup";
 import { Dictionary } from "@/types/dictionary";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { sendMessage } from "@/lib/api/api";
 
 type ContactFormValues = {
@@ -92,30 +92,7 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
 
   return (
       <div className={css.form_wrapper}>
-          <Toaster
-  position="top-center"
-  reverseOrder={false}
-  gutter={8}
-  containerClassName=""
-  containerStyle={{}}
-  toasterId="default"
-  toastOptions={{
-
-    className: "toast",
-    duration: 5000,
-    removeDelay: 1000,
-
-
-    success: {
-      duration: 3000,
-      iconTheme: {
-        primary: 'green',
-        secondary: 'black',
-      },
-    },
-  }}
-/>
-      <Formik
+                <Formik
         initialValues={initialValues}
         validationSchema={ContactFormSchema}
         onSubmit={handleSubmit}

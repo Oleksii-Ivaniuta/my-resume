@@ -67,6 +67,7 @@ export type Project = {
 };
 
 export type GetProjectsResponse = {
+  data: {
   data: Project[];
   page: number;
   perPage: number;
@@ -74,6 +75,7 @@ export type GetProjectsResponse = {
   totalPages: number;
   hasNextPage: boolean;
   hasPreviousPage: boolean;
+  }
 };
 
 export type GetProjectByIdRequest = {

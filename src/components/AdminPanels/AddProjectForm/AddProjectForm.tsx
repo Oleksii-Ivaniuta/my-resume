@@ -28,7 +28,6 @@ export default function AddProjectForm({onSubmit} : AddProjectFormProps) {
 
   const [photo, setPhoto] = useState<File | null>(null);
   const [error, setError] = useState<string>("");
-  const [success, setSuccess] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   function handleChange(
@@ -47,7 +46,6 @@ export default function AddProjectForm({onSubmit} : AddProjectFormProps) {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
-    setSuccess(false);
 
     const {
       name,
@@ -93,7 +91,6 @@ export default function AddProjectForm({onSubmit} : AddProjectFormProps) {
       if (photo) data.append("photo", photo);
 
       await onSubmit(data);
-      setSuccess(true);
       setFormData({
         name: "",
         order: "",
@@ -114,7 +111,7 @@ export default function AddProjectForm({onSubmit} : AddProjectFormProps) {
       setPhoto(null);
     } catch (err) {
       console.error(err);
-      setError("Failed to create project. Please try again.");
+      setError("Failed to create project");
     } finally {
       setLoading(false);
     }
@@ -169,12 +166,7 @@ export default function AddProjectForm({onSubmit} : AddProjectFormProps) {
               {error}
             </p>
           )}
-          {success && (
-            <p className={`${css.message_warning} ${css.message_warning_ok}`}>
-              Project created successfully!
-            </p>
-          )}
-
+         
           {/* --- Button --- */}
           <button type="submit" className={css.btn} disabled={loading}>
             {loading ? "Loading..." : "Create"}

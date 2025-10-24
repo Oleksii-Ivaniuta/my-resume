@@ -12,9 +12,26 @@
   padding: 8px;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
 @media screen and (min-width: 768px) {
   .portfolio {
     padding: 32px;
+  }
+
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    max-width: 320px;
   }
 }
 

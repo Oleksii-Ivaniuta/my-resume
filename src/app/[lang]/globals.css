@@ -97,3 +97,8 @@ footer {
     max-width: 1280px;
   }
 }
+
+ul,
+ol {
+  list-style: none;
+}

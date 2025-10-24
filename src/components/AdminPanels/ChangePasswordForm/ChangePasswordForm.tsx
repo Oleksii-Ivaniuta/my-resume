@@ -13,15 +13,12 @@ export default function ChangePasswordForm({onSubmit}: ChangePasswordFormProps) 
   const [oldPassword, setOldPassword] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
-    setSuccess(false);
 
     if (newPassword !== confirmPassword) {
       setError("New passwords do not match");
@@ -35,14 +32,13 @@ export default function ChangePasswordForm({onSubmit}: ChangePasswordFormProps) 
         password: oldPassword,
         newPassword,
       });
-      setSuccess(true);
       setEmail("");
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
     } catch (err) {
       console.error(err);
-      setError("Password change failed. Please check your credentials.");
+      setError("Password change failed");
     } finally {
       setLoading(false);
     }
@@ -103,13 +99,7 @@ export default function ChangePasswordForm({onSubmit}: ChangePasswordFormProps) 
               {error}
             </p>
           )}
-          {success && (
-            <p className={`${css.message_warning} ${css.message_warning_ok}`}>
-              Password changed successfully!
-            </p>
-          )}
-
-          <button type="submit" className={css.btn} disabled={loading}>
+                <button type="submit" className={css.btn} disabled={loading}>
             {loading ? "Loading..." : "Change"}
           </button>
         </fieldset>

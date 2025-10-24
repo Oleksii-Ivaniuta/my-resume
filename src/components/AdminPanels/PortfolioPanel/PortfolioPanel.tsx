@@ -33,7 +33,8 @@ export default function PortfolioPanel() {
   const addNewProject = useMutation({
     mutationFn: (data: FormData) => createProject(data),
     onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ['Projects'] });
+      queryClient.invalidateQueries({ queryKey: ['Projects'] });
+      toast.success('Project added successfully'); 
         closeAddProj();
       }
   });
@@ -42,7 +43,7 @@ export default function PortfolioPanel() {
         try {
             const res = await changePassword(data);
             if (res.status === 200) {
-                console.log("change password");  
+                toast.success('Password changed successfully'); 
             }
         }
         catch (err) {

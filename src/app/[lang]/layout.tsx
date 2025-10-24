@@ -8,6 +8,7 @@ import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { i18n, type Locale } from "@/lib/i18n/i18n-config";
 import TanStackProvider from "@/components/TanstackProvider/TanstackProvider";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -81,7 +82,27 @@ export default async function RootLayout({
       <body className={`${nunitoSans.variable} ${PTSans.variable} container`}>
         <TanStackProvider>
           <AuthProvider>
-            {" "}
+            <Toaster
+              position="top-center"
+              reverseOrder={false}
+              gutter={8}
+              containerClassName=""
+              containerStyle={{}}
+              toasterId="default"
+              toastOptions={{
+                className: "toast",
+                duration: 5000,
+                removeDelay: 1000,
+
+                success: {
+                  duration: 3000,
+                  iconTheme: {
+                    primary: "green",
+                    secondary: "black",
+                  },
+                },
+              }}
+            />
             <Header dict={dictionary} />
             <main>{children}</main>
             <Footer dict={dictionary} />
