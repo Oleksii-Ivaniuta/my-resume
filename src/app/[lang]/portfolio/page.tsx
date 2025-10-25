@@ -7,7 +7,7 @@ import PortfolioPanel from "@/components/AdminPanels/PortfolioPanel/PortfolioPan
 import ProjectBox from "@/components/ProjectBox/ProjectBox";
 
 export default function Portfolio() {
-  const { data, isLoading, isError, isSuccess } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryKey: ["Projects"],
     queryFn: () =>
       getProjects({ params: { page: 1, perPage: 6, sortOrder: "desc" } }),
@@ -21,7 +21,8 @@ export default function Portfolio() {
       <h2 className={css.sect_header}>
         My <span>projects</span>
       </h2>
-      <ul className={css.list}>
+      {isLoading ? <div className={css.loader}></div> : <div>
+         <ul className={css.list}>
         {isSuccess &&
           data.data.map((proj) => {
             return (
@@ -38,6 +39,9 @@ export default function Portfolio() {
             );
           })}
       </ul>
+      </div>
+      }
+     
     </section>
   );
 }

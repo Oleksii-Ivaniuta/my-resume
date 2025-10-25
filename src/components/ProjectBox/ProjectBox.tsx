@@ -15,7 +15,7 @@ interface ProjectBoxParams {
 export default function ProjectBox({ projectId, projectDecription, projectName, projectPhotoUrl, isAuth, projectOrder }: ProjectBoxParams) {
   return (
     <div className={css.wrapper}>
-      <Link href="/portfolio/projectId" className={css.link}>
+      <Link href={`/portfolio/${projectId}`} className={css.link}>
 
           {projectPhotoUrl && (
             <div className={css.pic_thumb}>
