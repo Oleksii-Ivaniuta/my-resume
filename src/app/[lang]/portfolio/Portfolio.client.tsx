@@ -7,7 +7,7 @@ import PortfolioPanel from "@/components/AdminPanels/PortfolioPanel/PortfolioPan
 import ProjectBox from "@/components/ProjectBox/ProjectBox";
 import Pagination from "@/components/Pagination/Pagination";
 import { useEffect, useState } from "react";
-import { GetProjectsResponse } from "@/types/apiTypes";
+import { GetProjectsResponse, Project } from "@/types/apiTypes";
 import { Lang } from "@/types/types";
 import { Dictionary } from "@/types/dictionary";
 
@@ -22,6 +22,7 @@ interface PortfolioClientProps {
 export default function PortfolioClient({ initialData, initialPage, initialPerPage, lang, dict }: PortfolioClientProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [perPage, setPerPage] = useState<number>(initialPerPage);
+  const [description, setDescription] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767.98px)");
@@ -45,11 +46,23 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
     refetchOnMount: true,
   });
 
+  function getLocalizedDescription(proj: Project, lang: string) {
+  switch (lang) {
+    case "uk":
+      return proj.descriptionUk;
+    case "pt":
+      return proj.descriptionPt;
+    default:
+      return proj.descriptionEn;
+  }
+    
+}
+
   return (
     <section className={css.portfolio}>
       {useAuthStore.getState().isAuthenticated && <PortfolioPanel />}
       <h2 className={css.sect_header}>
-        My <span>projects</span>
+        {dict.portfolio.titlePrefix} <span>{dict.portfolio.titleAccent}</span>
       </h2>
       {isLoading ? (
         <div className={css.loader}></div>
@@ -69,7 +82,7 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
                   <li className={css.item} key={proj._id}>
                     <ProjectBox
                       projectId={proj._id}
-                      projectDecription={proj.descriptionEn}
+                      projectDecription={getLocalizedDescription(proj, lang)}
                       projectName={proj.name}
                       projectPhotoUrl={proj.photoUrl}
                       projectOrder={proj.order}

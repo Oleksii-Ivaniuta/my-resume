@@ -9,6 +9,10 @@
     "portfolio": "Портфоліо",
     "contacts": "Контакти"
   },
+  "portfolio": {
+    "titlePrefix": "Мої",
+    "titleAccent": "проєкти"
+  },
   "home": {
     "hero": {
       "hi": "ПРИВІТ,",

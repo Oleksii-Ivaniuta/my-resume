@@ -9,6 +9,10 @@
     "portfolio": "Portfólio",
     "contacts": "Contatos"
   },
+  "portfolio": {
+    "titlePrefix": "Meus",
+    "titleAccent": "projetos"
+  },
   "home": {
     "hero": {
       "hi": "OLÁ,",

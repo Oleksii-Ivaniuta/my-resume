@@ -10,6 +10,10 @@ export interface Dictionary {
     portfolio: string;
     contacts: string;
   };
+    portfolio: {
+    titlePrefix: string;
+    titleAccent: string;
+  };
   home: {
     hero: {
       hi: string;

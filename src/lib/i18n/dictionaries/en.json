@@ -3,6 +3,12 @@
     "title": "Oleksii Ivaniuta - fullstack developer",
     "description": "Website-resume of the fullstack JavaScript developer"
   },
+
+  "portfolio": {
+    "titlePrefix": "My",
+    "titleAccent": "projects"
+  },
+
   "nav": {
     "home": "Home",
     "aboutMe": "About me",
