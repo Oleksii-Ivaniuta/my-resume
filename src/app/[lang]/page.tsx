@@ -3,6 +3,7 @@ import Image from "next/image";
 import ButtonContactMe from "../../components/ButtonGetResume/ButtonGetResume";
 import { Locale } from "@/lib/i18n/i18n-config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import ServerWarmup from "@/components/ServerWarmup/ServerWarmup";
 
 export default async function Home(props: {
   params: Promise<{ lang: Locale }>
@@ -48,6 +49,7 @@ export default async function Home(props: {
           {dict.home.hero.text.period}
         </p>
       </div>
+      <ServerWarmup/>
     </section>
   );
 }
