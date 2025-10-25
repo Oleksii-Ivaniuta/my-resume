@@ -1,76 +1,27 @@
-"use client";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import css from "./Portfolio.module.css";
 import { getProjects } from "@/lib/api/api";
-import { useAuthStore } from "@/lib/store/authStore";
-import PortfolioPanel from "@/components/AdminPanels/PortfolioPanel/PortfolioPanel";
-import ProjectBox from "@/components/ProjectBox/ProjectBox";
-import Pagination from "@/components/Pagination/Pagination";
-import { useEffect, useState } from "react";
-
-export default function Portfolio() {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [perPage, setPerPage] = useState<number>(6);
-  
-  useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 768) {
-      setPerPage(6);
-    } else {
-      setPerPage(4);
-    }
-  };
-
-  handleResize();
-  window.addEventListener("resize", handleResize);
-
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-  }, []);
-  
-    const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-  const { data, isLoading, isSuccess } = useQuery({
-    queryKey: ["projects", currentPage, perPage, "desc"],
-    queryFn: () =>
-      getProjects({ params: { page: currentPage, perPage: perPage, sortOrder: "desc" } }),
-    placeholderData: keepPreviousData,
-    refetchOnMount: true,
-  });
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { i18n, Locale } from "@/lib/i18n/i18n-config";
+import PortfolioClient from "./Portfolio.client";
 
 
+export default async function Portfolio(props: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await props.params;
+  const safeLang = (i18n.locales as readonly string[]).includes(lang) ? lang : i18n.defaultLocale;
+  const dict = await getDictionary(safeLang as Locale);
+  const initialPage = 1;
+  const initialPerPage = 6;
+
+  const data = await getProjects({
+        page: initialPage, perPage: initialPerPage, sortOrder: "desc" },
+      );
 
   return (
-    <section className={css.portfolio}>
-      {useAuthStore.getState().isAuthenticated && <PortfolioPanel />}
-      <h2 className={css.sect_header}>
-        My <span>projects</span>
-      </h2>
-      {isLoading ? <div className={css.loader}></div> : <div>
-        {isSuccess && data.totalPages > 1 && <Pagination currentPage={currentPage} onPageChange={handlePageChange} pageCount={data.totalPages}/>}
-        <ul className={css.list}>
-        {isSuccess &&
-          data.data.map((proj) => {
-            return (
-              <li className={css.item} key={proj._id}>
-                <ProjectBox
-                  projectId={proj._id}
-                  projectDecription={proj.descriptionEn}
-                  projectName={proj.name}
-                  projectPhotoUrl={proj.photoUrl}
-                  projectOrder={proj.order}
-                  isAuth={useAuthStore.getState().isAuthenticated}
-                />
-              </li>
-            );
-          })}
-        </ul>
-         {isSuccess && data.totalPages > 1 && <Pagination currentPage={currentPage} onPageChange={handlePageChange} pageCount={data.totalPages}/>}
-      </div>
-      }
-     
-    </section>
+    <PortfolioClient
+      initialData={data}
+      initialPage={initialPage}
+      initialPerPage={initialPerPage}
+      lang={lang}
+      dict={dict}
+    />
   );
 }

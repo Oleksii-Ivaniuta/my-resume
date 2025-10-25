@@ -36,12 +36,10 @@ export type SendMessageResponse = {
 };
 
 export type GetProjectsRequest = {
-  params: {
     page: number;
     perPage: number;
     sortBy?: string;
     sortOrder?: string;
-  };
 };
 
 export type Project = {
@@ -68,7 +66,7 @@ export type Project = {
 
 export type GetProjectsResponse = {
   data: {
-  data: Project[];
+      data: Project[];
   page: number;
   perPage: number;
   totalItems: number;
@@ -76,6 +74,7 @@ export type GetProjectsResponse = {
   hasNextPage: boolean;
   hasPreviousPage: boolean;
   }
+
 };
 
 export type GetProjectByIdRequest = {

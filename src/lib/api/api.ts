@@ -36,8 +36,8 @@ export const sendMessage = async (data: SendMessageRequest) => {
 };
 
 export const getProjects = async (params: GetProjectsRequest) => {
-  const res = await nextServer.get<GetProjectsResponse>("/projects", params);
-  return res.data.data;
+  const res = await nextServer.get<GetProjectsResponse>("/projects", { params });
+  return res.data;
 };
 
 export const getProjectById = async (projectId: string) => {
