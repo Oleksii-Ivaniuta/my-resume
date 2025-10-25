@@ -44,7 +44,7 @@ export const getProjectById = async (projectId: string) => {
   const res = await nextServer.get<GetProjectByIdResponse>(
     `/projects/${projectId}`
   );
-  return res;
+  return res.data;
 };
 
 

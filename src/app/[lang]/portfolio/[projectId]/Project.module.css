@@ -1,0 +1,186 @@
+.project {
+  background-color: var(--basicwhite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow:
+    0px 3px 3px -2px var(--shadow020),
+    0px 3px 4px 0px var(--shadow014),
+    0px 1px 8px 0px var(--shadow012);
+  padding: 8px;
+  color: var(--basicblack);
+  font-size: 14px;
+}
+
+.sect_header {
+  font-family: var(--font-pt-sans);
+  text-transform: uppercase;
+  color: var(--basicgreyinverce);
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  align-self: flex-start;
+}
+
+.sect_header span {
+  color: var(--basicorange);
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.media {
+  width: 100%;
+  max-width: 720px;
+  align-self: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image_placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
+  background-color: var(--basicgrey);
+  color: var(--basicblack);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  color: var(--basicgreyinverce);
+  margin: 0;
+  font-size: 16px;
+}
+
+.meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.meta_name {
+  font-weight: bold;
+  color: var(--basicgreyinverce);
+}
+
+.meta_value {
+  color: var(--basicblack);
+}
+
+.description {
+  margin: 0;
+  text-align: justify;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.link_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--basicorange);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 300ms ease-in-out;
+}
+
+.link_btn:hover {
+  background-color: rgba(236, 128, 57, 0.3);
+  color: var(--basicblack);
+}
+
+.back_btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--basicgreyinverce);
+  cursor: pointer;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--basicgrey);
+  border-top-color: var(--basicorange);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 24px auto;
+}
+
+.error {
+  color: red;
+  padding: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* breakpoints */
+@media screen and (min-width: 768px) {
+  .project {
+    padding: 32px;
+    font-size: 16px;
+  }
+  .sect_header {
+    font-size: 24px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .media {
+    max-width: 100%;
+  }
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .project {
+    font-size: 18px;
+  }
+  .sect_header {
+    font-size: 36px;
+  }
+  .title {
+    font-size: 24px;
+  }
+}

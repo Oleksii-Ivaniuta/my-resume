@@ -83,7 +83,7 @@ export type GetProjectByIdRequest = {
   };
 };
 
-export type GetProjectByIdResponse = Project;
+export type GetProjectByIdResponse = { data: Project };
 
 export type CreateProjectRequest = {
   name: string;
