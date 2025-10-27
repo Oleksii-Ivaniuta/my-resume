@@ -1,13 +1,7 @@
 .project {
-  background-color: var(--basicwhite);
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
-  box-shadow:
-    0px 3px 3px -2px var(--shadow020),
-    0px 3px 4px 0px var(--shadow014),
-    0px 1px 8px 0px var(--shadow012);
   padding: 8px;
   color: var(--basicblack);
   font-size: 14px;
@@ -36,7 +30,7 @@
 .media {
   width: 100%;
   max-width: 720px;
-  align-self: center;
+  align-self: flex-start;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -119,6 +113,7 @@
 }
 
 .back_btn {
+  margin-top: 16px;
   align-self: flex-start;
   background: transparent;
   border: none;
@@ -128,13 +123,19 @@
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 3px solid var(--basicgrey);
-  border-top-color: var(--basicorange);
+  width: 50px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-  margin: 24px auto;
+  background:
+    radial-gradient(farthest-side, #ffa516 94%, #0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, #ffa516);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 .error {
@@ -142,13 +143,6 @@
   padding: 8px;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* breakpoints */
 @media screen and (min-width: 768px) {
   .project {
     padding: 32px;

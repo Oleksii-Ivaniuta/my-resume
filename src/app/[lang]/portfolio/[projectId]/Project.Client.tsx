@@ -16,8 +16,8 @@ export default function ProjectClient() {
     refetchOnMount: false,
   });
 
-  if (isLoading) return <div className={css.loader} />;
-  if (error || !data) return <div className={css.error}>Failed to load project.</div>;
+  if (isLoading) return (<section className={css.project}><div className={css.loader} /></section>);
+  if (error || !data) return (<section className={css.project}><div className={css.error}>Failed to load project.</div></section>);
 
   return (
     <section className={css.project}>

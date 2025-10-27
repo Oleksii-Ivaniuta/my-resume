@@ -58,6 +58,22 @@ a {
 }
 
 footer {
+  flex-grow: 0;
+}
+
+main {
+  background-color: var(--basicwhite);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow:
+    0px 3px 3px -2px var(--shadow020),
+    0px 3px 4px 0px var(--shadow014),
+    0px 1px 8px 0px var(--shadow012);
+  color: var(--basicblack);
+  font-size: 14px;
   flex-grow: 1;
 }
 
