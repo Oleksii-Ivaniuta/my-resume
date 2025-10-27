@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: 'my-resume-backend-1.onrender.com',
         pathname: '/uploads/**',
       },
+       {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
   },
 };

@@ -81,11 +81,8 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
                 return (
                   <li className={css.item} key={proj._id}>
                     <ProjectBox
-                      projectId={proj._id}
-                      projectDecription={getLocalizedDescription(proj, lang)}
-                      projectName={proj.name}
-                      projectPhotoUrl={proj.photoUrl}
-                      projectOrder={proj.order}
+                      projectDescription={getLocalizedDescription(proj, lang)}
+                      project={proj}
                       isAuth={useAuthStore.getState().isAuthenticated}
                     />
                   </li>

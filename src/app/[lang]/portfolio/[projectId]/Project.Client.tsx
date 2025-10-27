@@ -34,7 +34,6 @@ export default function ProjectClient() {
               width={1200}
               height={800}
               className={css.image}
-              priority={false}
             />
           ) : (
             <div className={css.image_placeholder}>No preview</div>
@@ -78,7 +77,6 @@ export default function ProjectClient() {
               </a>
             )}
           </div>
-
           <button type="button" className={css.back_btn} onClick={() => router.back()}>
             ← Back
           </button>

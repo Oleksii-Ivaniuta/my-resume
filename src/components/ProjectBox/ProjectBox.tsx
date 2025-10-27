@@ -2,40 +2,37 @@ import css from "./ProjectBox.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import EditProjectPanel from "../AdminPanels/ProjectEditPanel/ProjectEditPanel";
+import { Project } from "@/types/apiTypes";
 
 interface ProjectBoxParams {
   isAuth: boolean;
-    projectId: string;
-    projectName: string;
-    projectDecription: string;
-    projectPhotoUrl: string | undefined;
-    projectOrder: number;
+  project: Project;
+  projectDescription: string,
 }
 
-export default function ProjectBox({ projectId, projectDecription, projectName, projectPhotoUrl, isAuth, projectOrder }: ProjectBoxParams) {
+export default function ProjectBox({ project, isAuth, projectDescription }: ProjectBoxParams) {
   return (
     <div className={css.wrapper}>
-      <Link href={`/portfolio/${projectId}`} className={css.link}>
+      <Link href={`/portfolio/${project._id}`} className={css.link}>
 
-          {projectPhotoUrl && (
+          {project.photoUrl && (
             <div className={css.pic_thumb}>
               <Image
                 className={css.pic}
-                src={projectPhotoUrl}
+                src={project.photoUrl}
                 alt="project photo"
                 width="1024"
                 height="768"
               />{" "}
-     <p className={css.pic_overlay}>{projectDecription}</p>
+     <p className={css.pic_overlay}>{projectDescription}</p>
             </div>
           )}
 
-        <h3 className={css.name}>{projectName}</h3>
+        <h3 className={css.name}>{project.name}</h3>
       </Link>
       {isAuth && (
         <EditProjectPanel
-          projectId={projectId}
-          projectOrder={projectOrder}
+project={project}
         />
       )}
     </div>
