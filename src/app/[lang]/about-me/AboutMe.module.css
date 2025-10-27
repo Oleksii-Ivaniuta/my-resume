@@ -1,4 +1,5 @@
 .about_me {
+  background-color: var(--basicwhite);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -6,6 +7,11 @@
   padding: 8px;
   color: var(--basicblack);
   font-size: 14px;
+  border-radius: 8px;
+  box-shadow:
+    0px 3px 3px -2px var(--shadow020),
+    0px 3px 4px 0px var(--shadow014),
+    0px 1px 8px 0px var(--shadow012);
 }
 
 .about_me a {
@@ -17,10 +23,19 @@
   text-transform: uppercase;
   color: var(--basicgreyinverce);
   font-size: 18px;
+  margin: 0 0 8px 0;
 }
 
 .sect_header span {
   color: var(--basicorange);
+}
+
+.intro {
+  max-width: 960px;
+  text-align: justify;
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+  color: var(--foreground);
 }
 
 .about_me ul {
@@ -30,12 +45,13 @@
   flex-wrap: nowrap;
   gap: 8px;
   padding: 0;
+  margin: 0;
 }
 
 .article_header {
   color: var(--basicgreyinverce);
   padding: 0;
-  margin: 0 0 8px 0;
+  margin: 8px 0;
   font-size: 16px;
   align-self: flex-start;
 }
@@ -53,7 +69,6 @@
 .article h4 {
   color: var(--basicgreyinverce);
 }
-
 .article strong {
   color: var(--basicgreyinverce);
 }
@@ -72,11 +87,10 @@
   margin-bottom: 8px;
   border-radius: 8px;
 }
-
-.edu_pict_thumb img {
+.edu_pict {
+  display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
   object-fit: contain;
 }
 
@@ -90,11 +104,10 @@
   margin-bottom: 8px;
   border-radius: 8px;
 }
-
-.work_pict_thumb img {
+.work_pict {
+  display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
   object-fit: contain;
 }
 
@@ -108,18 +121,23 @@
   gap: 12px;
 }
 
+.text_wrapper {
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .about_me {
     padding: 32px;
     font-size: 16px;
   }
-
   .sect_header {
     font-size: 24px;
   }
-
   .article_header {
     font-size: 20px;
+  }
+  .intro {
+    margin-bottom: 24px;
   }
 
   .edu_pict_thumb {
@@ -135,6 +153,7 @@
     align-items: flex-start;
     gap: 12px;
     margin-bottom: 24px;
+    width: 100%;
   }
 
   .edu_wrapper .text_wrapper {
@@ -150,6 +169,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 12px;
+    width: 100%;
   }
 
   .work_pict_thumb {
@@ -178,19 +198,15 @@
   .about_me {
     font-size: 18px;
   }
-
   .sect_header {
     font-size: 36px;
   }
-
   .article_header {
     font-size: 24px;
   }
-
   .edu_wrapper ul {
     gap: 30px;
   }
-
   .work_wrapper .list {
     gap: 30px;
   }

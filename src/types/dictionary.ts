@@ -34,6 +34,7 @@ export interface Dictionary {
   };
   about: {
     heading: { a: string; b: string };
+    intro: string;
     education: {
       title: string;
       items: Array<{

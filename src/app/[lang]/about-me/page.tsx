@@ -1,4 +1,3 @@
-// src/app/[lang]/about-me/page.tsx
 import Link from "next/link";
 import css from "./AboutMe.module.css";
 import Image from "next/image";
@@ -15,6 +14,9 @@ export default async function AboutMe(props: { params: Promise<{ lang: Locale }>
       <h2 className={css.sect_header}>
         {dict.about.heading.a} <span>{dict.about.heading.b}</span>
       </h2>
+
+      {/* Intro / Motivation */}
+      <p className={css.intro}>{dict.about.intro}</p>
 
       {/* Education */}
       <article className={css.article}>

@@ -35,6 +35,7 @@
   },
   "about": {
     "heading": { "a": "About", "b": "me" },
+    "intro": "I’m a developer who believes technology should make life simpler, fairer, and more inspiring. My goal is to build products that don’t just function but truly help people. In every project, I look for an opportunity to learn, refine processes, and create more intuitive user experiences. I value thoughtful design, clean code, and teamwork that turns ideas into reality.",
     "education": {
       "title": "Education",
       "items": [

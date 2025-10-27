@@ -33,6 +33,7 @@
   },
   "about": {
     "heading": { "a": "Sobre", "b": "mim" },
+    "intro": "Sou um desenvolvedor que acredita que a tecnologia deve tornar a vida mais simples, justa e inspiradora. O meu objetivo é criar produtos que não apenas funcionem, mas que realmente ajudem as pessoas. Em cada projeto vejo uma oportunidade de aprender, otimizar processos e criar experiências de utilizador mais intuitivas. Valorizo um design bem pensado, código limpo e o trabalho em equipa que transforma ideias em realidade.",
     "education": {
       "title": "Educação",
       "items": [
