@@ -74,11 +74,11 @@ export default function ProjectClient({ dict, lang }: ProjectClientProps) {
           <ul className={css.meta}>
             <li>
               <span className={css.meta_name}>{t.labels.type}</span>{' '}
-              <span className={css.meta_value}>{type}</span>
+              <span className={css.meta_value}>{String(type)}</span>
             </li>
             <li>
               <span className={css.meta_name}>{t.labels.role}</span>{' '}
-              <span className={css.meta_value}>{role}</span>
+              <span className={css.meta_value}>{String(role)}</span>
             </li>
             <li>
               <span className={css.meta_name}>{t.labels.tech}</span>{' '}
@@ -86,7 +86,7 @@ export default function ProjectClient({ dict, lang }: ProjectClientProps) {
             </li>
           </ul>
 
-          <p className={css.description}>{description}</p>
+          <p className={css.description}>{String(description)}</p>
 
           <div className={css.links}>
             {p.liveUrl && (
