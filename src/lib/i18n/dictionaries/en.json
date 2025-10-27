@@ -137,5 +137,22 @@
       "phone": "Phone:",
       "address": "Lisbon, Portugal"
     }
+  },
+  "project": {
+    "heading": { "a": "Project", "b": "details" },
+    "labels": {
+      "type": "Type:",
+      "role": "Role:",
+      "tech": "Tech stack:"
+    },
+    "links": {
+      "live": "Live",
+      "frontend": "Frontend code",
+      "backend": "Backend code",
+      "back": "← Back"
+    },
+    "placeholders": {
+      "noPreview": "No preview"
+    }
   }
 }

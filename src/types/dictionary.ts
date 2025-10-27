@@ -97,5 +97,22 @@ export interface Dictionary {
                 phone: string;
                 address: string;
     };
+     };
+   project: {
+    heading: { a: string; b: string };
+    labels: {
+      type: string;
+      role: string;
+      tech: string;
+    };
+    links: {
+      live: string;
+      frontend: string;
+      backend: string;
+      back: string;
+    };
+    placeholders: {
+      noPreview: string;
+    };
   };
 }

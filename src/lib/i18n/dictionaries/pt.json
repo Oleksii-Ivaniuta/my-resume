@@ -135,5 +135,22 @@
       "phone": "Telefone:",
       "address": "Lisboa, Portugal"
     }
+  },
+  "project": {
+    "heading": { "a": "Detalhes", "b": "do projeto" },
+    "labels": {
+      "type": "Tipo:",
+      "role": "Função:",
+      "tech": "Stack tecnológica:"
+    },
+    "links": {
+      "live": "Ao vivo",
+      "frontend": "Código do frontend",
+      "backend": "Código do backend",
+      "back": "← Voltar"
+    },
+    "placeholders": {
+      "noPreview": "Sem pré-visualização"
+    }
   }
 }

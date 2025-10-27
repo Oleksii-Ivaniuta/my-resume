@@ -135,5 +135,22 @@
       "phone": "Телефон:",
       "address": "Лісабон, Португалія"
     }
+  },
+  "project": {
+    "heading": { "a": "Деталі", "b": "проєкту" },
+    "labels": {
+      "type": "Тип:",
+      "role": "Роль:",
+      "tech": "Тех. стек:"
+    },
+    "links": {
+      "live": "Live",
+      "frontend": "Код фронтенду",
+      "backend": "Код бекенду",
+      "back": "← Назад"
+    },
+    "placeholders": {
+      "noPreview": "Немає прев’ю"
+    }
   }
 }

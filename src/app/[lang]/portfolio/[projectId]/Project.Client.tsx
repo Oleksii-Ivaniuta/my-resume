@@ -5,8 +5,16 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams, useRouter } from 'next/navigation';
 import { getProjectById } from '@/lib/api/api';
 import css from './Project.module.css';
+import { Dictionary } from '@/types/dictionary';
+import { Locale } from '@/lib/i18n/i18n-config';
+import { pickDescription, pickRole, pickType } from '@/lib/i18n/pick';
 
-export default function ProjectClient() {
+interface ProjectClientProps {
+  dict: Dictionary;
+  lang: Locale;
+}
+
+export default function ProjectClient({ dict, lang }: ProjectClientProps) {
   const { projectId } = useParams<{ projectId: string }>();
   const router = useRouter();
 
@@ -16,69 +24,90 @@ export default function ProjectClient() {
     refetchOnMount: false,
   });
 
-  if (isLoading) return (<section className={css.project}><div className={css.loader} /></section>);
-  if (error || !data) return (<section className={css.project}><div className={css.error}>Failed to load project.</div></section>);
+  if (isLoading) {
+    return (
+      <section className={css.project}>
+        <div className={css.loader} />
+      </section>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <section className={css.project}>
+        <div className={css.error}>Failed to load project.</div>
+      </section>
+    );
+  }
+
+  const p = data.data;
+  const t = dict.project;
+
+  const type = pickType(p, lang);
+  const role = pickRole(p, lang);
+  const description = pickDescription(p, lang);
 
   return (
     <section className={css.project}>
       <h2 className={css.sect_header}>
-        Project <span>details</span>
+        {t.heading.a} <span>{t.heading.b}</span>
       </h2>
 
       <div className={css.content}>
         <div className={css.media}>
-          {data.data.photoUrl ? (
+          {p.photoUrl ? (
             <Image
-              src={data.data.photoUrl}
-              alt={data.data.name}
+              src={p.photoUrl}
+              alt={p.name}
               width={1200}
               height={800}
               className={css.image}
             />
           ) : (
-            <div className={css.image_placeholder}>No preview</div>
+            <div className={css.image_placeholder}>{t.placeholders.noPreview}</div>
           )}
         </div>
 
         <div className={css.info}>
-          <h3 className={css.title}>{data.data.name}</h3>
+          <h3 className={css.title}>{p.name}</h3>
 
           <ul className={css.meta}>
             <li>
-              <span className={css.meta_name}>Type:</span>{' '}
-              <span className={css.meta_value}>{data.data.typeEn}</span>
+              <span className={css.meta_name}>{t.labels.type}</span>{' '}
+              <span className={css.meta_value}>{type}</span>
             </li>
             <li>
-              <span className={css.meta_name}>Role:</span>{' '}
-              <span className={css.meta_value}>{data.data.roleEn}</span>
+              <span className={css.meta_name}>{t.labels.role}</span>{' '}
+              <span className={css.meta_value}>{role}</span>
             </li>
             <li>
-              <span className={css.meta_name}>Tech stack:</span>{' '}
-              <span className={css.meta_value}>{data.data.techStack}</span>
+              <span className={css.meta_name}>{t.labels.tech}</span>{' '}
+              <span className={css.meta_value}>{p.techStack}</span>
             </li>
           </ul>
 
-          <p className={css.description}>{data.data.descriptionEn}</p>
+          <p className={css.description}>{description}</p>
 
           <div className={css.links}>
-            {data.data.liveUrl && (
-              <a className={css.link_btn} href={data.data.liveUrl} target="_blank" rel="noopener noreferrer">
-                Live
+            {p.liveUrl && (
+              <a className={css.link_btn} href={p.liveUrl} target="_blank" rel="noopener noreferrer">
+                {t.links.live}
               </a>
             )}
-            {data.data.frontCodeUrl && (
-              <a className={css.link_btn} href={data.data.frontCodeUrl} target="_blank" rel="noopener noreferrer">
-                Frontend code
+            {p.frontCodeUrl && (
+              <a className={css.link_btn} href={p.frontCodeUrl} target="_blank" rel="noopener noreferrer">
+                {t.links.frontend}
               </a>
             )}
-            {data.data.backCodeUrl && (
-              <a className={css.link_btn} href={data.data.backCodeUrl} target="_blank" rel="noopener noreferrer">
-                Backend code
+            {p.backCodeUrl && (
+              <a className={css.link_btn} href={p.backCodeUrl} target="_blank" rel="noopener noreferrer">
+                {t.links.backend}
               </a>
             )}
           </div>
+
           <button type="button" className={css.back_btn} onClick={() => router.back()}>
-            ← Back
+            {t.links.back}
           </button>
         </div>
       </div>
