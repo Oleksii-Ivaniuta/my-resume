@@ -2,9 +2,10 @@
 import css from "./ServerWarmup.module.css";
 import { getProjects } from "@/lib/api/api";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function ServerWarmup() {
-  const warmup = useQuery({
+  const warmupThis = useQuery({
     queryKey: ["Projects"],
     queryFn: () =>
       getProjects({
@@ -14,5 +15,27 @@ export default function ServerWarmup() {
       }),
     refetchOnMount: true,
   });
-  return <div className={css.warmup}>{JSON.stringify(warmup.data)}</div>;
+ 
+  const warmupContacts = async () => {
+   const res = await axios.get(
+    "https://nodejs-hw-mongodb-voqb.onrender.com/api-docs"
+   )
+    return res.data;
+  };
+
+    const warmupLehleka = async () => {
+   const res = await axios.get(
+    "https://project-teamsurvivors.onrender.com/api/weeks/my-day-demo"
+  )
+      return res.data;
+  };
+
+  const warmupAll = async () => {
+    await warmupLehleka();
+    await warmupContacts();
+  }
+
+  warmupAll()
+  
+  return null;
 }
