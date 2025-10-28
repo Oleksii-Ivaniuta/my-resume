@@ -41,6 +41,7 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
         page: currentPage, perPage: perPage, sortOrder: "desc" ,
       }),
     initialData: initialData,
+    placeholderData: keepPreviousData,
     refetchOnMount: true,
   });
 
