@@ -22,7 +22,6 @@ interface PortfolioClientProps {
 export default function PortfolioClient({ initialData, initialPage, initialPerPage, lang, dict }: PortfolioClientProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [perPage, setPerPage] = useState<number>(initialPerPage);
-  const [description, setDescription] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767.98px)");
@@ -42,7 +41,6 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
         page: currentPage, perPage: perPage, sortOrder: "desc" ,
       }),
     initialData: initialData,
-    placeholderData: keepPreviousData,
     refetchOnMount: true,
   });
 
