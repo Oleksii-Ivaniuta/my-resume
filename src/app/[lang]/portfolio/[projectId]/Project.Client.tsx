@@ -18,13 +18,13 @@ export default function ProjectClient({ dict, lang }: ProjectClientProps) {
   const { projectId } = useParams<{ projectId: string }>();
   const router = useRouter();
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, isFetching} = useQuery({
     queryKey: ['project', projectId],
     queryFn: () => getProjectById(projectId),
     refetchOnMount: false,
   });
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <section className={css.project}>
         <div className={css.loader} />
