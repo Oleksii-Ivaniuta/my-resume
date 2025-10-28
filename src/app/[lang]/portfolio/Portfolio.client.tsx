@@ -1,5 +1,5 @@
 "use client";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-query";
 import css from "./Portfolio.module.css";
 import { getProjects } from "@/lib/api/api";
 import { useAuthStore } from "@/lib/store/authStore";
@@ -22,6 +22,8 @@ interface PortfolioClientProps {
 export default function PortfolioClient({ initialData, initialPage, initialPerPage, lang, dict }: PortfolioClientProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [perPage, setPerPage] = useState<number>(initialPerPage);
+  const qc = useQueryClient();
+
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767.98px)");
@@ -34,7 +36,7 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-  const { data, isLoading, isSuccess } = useQuery({
+  const {  data, isLoading, isSuccess, isFetching  } = useQuery({
     queryKey: ["projects", currentPage, perPage, "desc"],
     queryFn: () =>
       getProjects({
@@ -42,8 +44,23 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
       }),
     initialData: initialData,
     placeholderData: keepPreviousData,
-    refetchOnMount: true,
+     refetchOnMount: true,
+  refetchOnWindowFocus: true,
+  refetchOnReconnect: true,
+  staleTime: 0,                       
+  gcTime: 5 * 60 * 1000,
+  retry: 1,
+  notifyOnChangeProps: ['data','isLoading','isFetching','isSuccess'],
   });
+
+  useEffect(() => {
+  if (!data?.data.hasNextPage) return;
+  qc.prefetchQuery({
+    queryKey: ["projects", currentPage + 1, perPage, "desc"],
+    queryFn: () =>
+      getProjects({ page: currentPage + 1, perPage, sortOrder: "desc"  }),
+  });
+}, [currentPage, perPage, data?.data.hasNextPage, qc]);
 
   function getLocalizedDescription(proj: Project, lang: string) {
   switch (lang) {
@@ -66,7 +83,8 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
       {isLoading ? (
         <div className={css.loader}></div>
       ) : (
-        <div>
+          <div>
+            {isFetching && <div className={css.loader}></div>}
           {isSuccess && data.data.totalPages > 1 && (
             <Pagination
               currentPage={currentPage}
