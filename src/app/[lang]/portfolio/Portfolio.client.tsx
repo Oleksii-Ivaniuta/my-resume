@@ -43,7 +43,6 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
         page: currentPage, perPage: perPage, sortOrder: "desc" ,
       }),
     initialData: initialData,
-    placeholderData: keepPreviousData,
      refetchOnMount: true,
   refetchOnWindowFocus: true,
   refetchOnReconnect: true,
@@ -80,11 +79,10 @@ export default function PortfolioClient({ initialData, initialPage, initialPerPa
       <h2 className={css.sect_header}>
         {dict.portfolio.titlePrefix} <span>{dict.portfolio.titleAccent}</span>
       </h2>
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <div className={css.loader}></div>
       ) : (
           <div>
-            {isFetching && <div className={css.loader}></div>}
           {isSuccess && data.data.totalPages > 1 && (
             <Pagination
               currentPage={currentPage}

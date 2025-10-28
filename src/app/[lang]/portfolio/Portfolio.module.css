@@ -27,6 +27,13 @@
   gap: 16px;
 }
 
+.loader_overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .loader {
   margin: 160px 0;
   align-self: center;
